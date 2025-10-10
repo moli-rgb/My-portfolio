@@ -10,71 +10,56 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
-    <style>
-      .neon-shadow {
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.6),
-          /* ظل أبيض ناعم */ 0 0 20px rgba(255, 255, 255, 0.3); /* زيادة لمعان */
-        border-radius: 10px; /* يخلي الحواف أنعم */
-      }
-    </style>
+    <link href="./style.css" rel="stylesheet">
   </head>
   <body style="background-color: black">
-    <!-- head -->
-    <div
-      style="
-        background-color: black;
-        width: 100%;
-        padding: 20px 0;
-        min-height: 75px;
-      "
-    >
-      <section class="container rounded">
-        <ul class="nav nav-pills fs-5 justify-content-start">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="./index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="./index (abt).html">About Me</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Resume</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Portfolio</a>
-          </li>
+    <!-- header -->
+<nav class="navbar navbar-expand-lg" style="background-color: black; padding: 20px 0;">
+  <div class="container">
+    <!-- زر الهامبرجر -->
+    <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+    </button>
+
+    <!-- Offcanvas (بيشتغل للشاشة الصغيرة) -->
+    <div class="offcanvas offcanvas-start bg-black text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <!-- نفس عناصر النافبار هنا -->
+        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3 fs-5">
+          <li class="nav-item"><a class="nav-link text-white" href="./index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="./index (abt).html">About Me</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">Resume</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="#">Portfolio</a></li>
           <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle text-white"
-              data-bs-toggle="dropdown"
-              href="#"
-              role="button"
-              aria-expanded="false"
-              >Dropdown</a
-            >
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Resources
+            </a>
             <ul class="dropdown-menu bg-dark">
-              <li><a class="dropdown-item text-white" href="#">Dropdown</a></li>
-              <li><a class="dropdown-item text-white" href="#">Dropdown</a></li>
-              <li><a class="dropdown-item text-white" href="#">Dropdown</a></li>
-              <li><a class="dropdown-item text-white" href="#">Dropdown</a></li>
-              <li><a class="dropdown-item text-white" href="#">Dropdown</a></li>
+              <li><a class="dropdown-item text-white" href="#">Tutorials</a></li>
+              <li><a class="dropdown-item text-white" href="#">Blog</a></li>
+              <li><a class="dropdown-item text-white" href="#">Tools</a></li>
+              <li><a class="dropdown-item text-white" href="#">Documentation</a></li>
+              <li><a class="dropdown-item text-white" href="#">Community</a></li>
             </ul>
           </li>
         </ul>
-      </section>
+      </div>
     </div>
+  </div>
+</nav>
     <!-- contact me -->
     <main
       class="d-flex flex-column justify-content-center align-items-center text-center text-white px-3"
     >
       <h1>Contact Me!</h1>
       <p class="lead">
-        Cover is a one-page template for building simple and beautiful home
-        pages.<br />
-        Download, edit the text, and add your own fullscreen background photo to
-        make it your own.
+        Have a project in mind or want to discuss potential opportunities? Feel free to reach out!<br />
+        I'm always open to new challenges and interesting projects.
       </p>
     </main>
     <!--two column -->
@@ -105,9 +90,8 @@
                 <i class="bi bi-geo-alt"></i>
               </div>
               <div class="content">
-                <h4>Our Location</h4>
-                <p>A108 Adam Street</p>
-                <p>New York, NY 535022</p>
+                <h4>Location</h4>
+                <p>Your City, Country</p>
               </div>
             </div>
 
@@ -120,9 +104,8 @@
                 <i class="bi bi-telephone"></i>
               </div>
               <div class="content">
-                <h4>Phone Number</h4>
-                <p>+1 5589 55488 55</p>
-                <p>+1 6678 254445 41</p>
+                <h4>Phone</h4>
+                <p>+123 456 7890</p>
               </div>
             </div>
 
@@ -135,9 +118,8 @@
                 <i class="bi bi-envelope"></i>
               </div>
               <div class="content">
-                <h4>Email Address</h4>
-                <p>info@example.com</p>
-                <p>contact@example.com</p>
+                <h4>Email</h4>
+                <p>your.email@example.com</p>
               </div>
             </div>
           </div>
@@ -151,13 +133,15 @@
           >
             <h3>Get In Touch</h3>
             <p>
-              Praesent sapien massa, convallis a pellentesque nec, egestas non
-              nisi. Vestibulum ante ipsum primis.
+              Feel free to send me a message and I'll get back to you as soon as possible.
+            </p>
+            <p class="text-muted">
+              Note: To make this form work, replace "YOUR_FORM_ID" in the form action with your actual Formspree form ID.
             </p>
 
             <form
-              action="forms/contact.php"
-              method="post"
+              action="https://formspree.io/f/YOUR_FORM_ID"
+              method="POST"
               class="php-email-form aos-init aos-animate"
               data-aos="fade-up"
               data-aos-delay="200"
@@ -169,7 +153,7 @@
                     name="name"
                     class="form-control"
                     placeholder="Your Name"
-                    required=""
+                    required
                   />
                 </div>
 
@@ -179,7 +163,7 @@
                     class="form-control"
                     name="email"
                     placeholder="Your Email"
-                    required=""
+                    required
                   />
                 </div>
 
@@ -189,7 +173,7 @@
                     class="form-control"
                     name="subject"
                     placeholder="Subject"
-                    required=""
+                    required
                   />
                 </div>
 
@@ -199,7 +183,7 @@
                     name="message"
                     rows="6"
                     placeholder="Message"
-                    required=""
+                    required
                   ></textarea>
                 </div>
 
@@ -210,7 +194,7 @@
                     Your message has been sent. Thank you!
                   </div>
 
-                  <button type="submit" class="btn text-white">
+                  <button type="submit" class="btn btn-primary">
                     Send Message
                   </button>
                 </div>
@@ -245,5 +229,6 @@
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

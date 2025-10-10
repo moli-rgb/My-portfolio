@@ -7,182 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
     crossorigin="anonymous">
-  <style>
-    /* Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #121212; /* Dark background */
-      color: #e0e0e0; /* Light text */
-      direction: ltr;
-      line-height: 1.6;
-    }
-
-    .navbar-nav{
-        display: flex;
-        justify-content: end;
-        align-items: end;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: -8px auto;
-      padding: 20px;
-    }
-
-    .about-me {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 30px;
-    }
-
-    .profile-pic {
-      flex: 0 0 180px;
-      max-width: 180px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid #4a90e2; /* Light blue border */
-      box-shadow: 0 0 10px #4a90e2;
-    }
-
-    .profile-pic img {
-      width: 100%;
-      height: 170px;
-      display: block;
-    }
-
-    .content {
-      flex: 1;
-      min-width: 250px;
-    }
-
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      color: #4a90e2; /* Light blue */
-    }
-
-    h2 {
-      font-size: 1.2rem;
-      font-weight: normal;
-      margin-bottom: 25px;
-      color: #b0b0b0;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: #dcdcdc;
-    }
-
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 30px;
-    }
-
-    .skill {
-      background-color: #2a2a2a;
-      color: #4a90e2;
-      padding: 8px 15px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      box-shadow: 0 0 5px #4a90e2;
-      user-select: none;
-    }
-
-    .values {
-      display: flex;
-      gap: 25px;
-      margin-bottom: 35px;
-      flex-wrap: wrap;
-    }
-
-    .value-box {
-      background-color: #222222;
-      flex: 1;
-      min-width: 150px;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 8px #333333;
-      text-align: center;
-      transition: background-color 0.3s ease;
-    }
-
-    .value-box:hover {
-      background-color: #4a90e2;
-      color: #fff;
-      cursor: default;
-      box-shadow: 0 0 15px #4a90e2;
-    }
-
-    .value-box h3 {
-      margin-bottom: 10px;
-      font-size: 1.2rem;
-      color: inherit;
-    }
-
-    .value-box p {
-      font-size: 0.95rem;
-      color: inherit;
-      margin: 0;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      background-color: #4a90e2;
-      color: #fff;
-      padding: 12px 28px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      text-decoration: none;
-      text-align: center;
-      transition: background-color 0.3s ease;
-      user-select: none;
-    }
-
-    .btn:hover {
-      background-color: #357abd;
-      cursor: pointer;
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .about-me {
-        flex-direction: column;
-        align-items: center;
-      }
-      .profile-pic {
-        flex: 0 0 140px;
-        max-width: 140px;
-        margin-bottom: 20px;
-      }
-      .content {
-        text-align: center;
-      }
-      .values {
-        flex-direction: column;
-      }
-      .value-box {
-        min-width: auto;
-      }
-      .cta-buttons {
-        justify-content: center;
-      }
-    }
-  </style>
+    <link href="./style.css" rel="stylesheet">
 </head>
 <body style="background-color: black;">
 <!-- header -->
@@ -209,14 +34,14 @@
           <li class="nav-item"><a class="nav-link text-white" href="#">Portfolio</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown
+              Resources
             </a>
             <ul class="dropdown-menu bg-dark">
-              <li><a class="dropdown-item text-white" href="#">Dropdown</a></li>
-              <li><a class="dropdown-item text-white" href="#">Dropdown</a></li>
-              <li><a class="dropdown-item text-white" href="#">Dropdown</a></li>
-              <li><a class="dropdown-item text-white" href="#">Dropdown</a></li>
-              <li><a class="dropdown-item text-white" href="#">Dropdown</a></li>
+              <li><a class="dropdown-item text-white" href="#">Tutorials</a></li>
+              <li><a class="dropdown-item text-white" href="#">Blog</a></li>
+              <li><a class="dropdown-item text-white" href="#">Tools</a></li>
+              <li><a class="dropdown-item text-white" href="#">Documentation</a></li>
+              <li><a class="dropdown-item text-white" href="#">Community</a></li>
             </ul>
           </li>
         </ul>
@@ -232,35 +57,35 @@
       </div>
       <div class="content">
         <h1>Hello, I'm Mostafa</h1>
-        <h2>Web developer and designer with passion and experience in building simple and attractive user interfaces</h2>
+        <h2>Web Developer & UI/UX Designer</h2>
         <p>
-          My journey in web development started from a love for technology and design. I believe a good website combines beauty and functionality at the same time.  
-          I've worked on diverse projects from personal websites to e-commerce stores, and I always strive to improve my skills and keep learning.
+          I'm a passionate web developer with expertise in creating modern, responsive websites and applications. My journey in web development began with a fascination for how technology and design intersect to create meaningful digital experiences.
         </p>
         <p>
-          This website is my opportunity to share my work with you and connect with people interested in design and development. If you'd like to collaborate, I'm ready and waiting to hear from you.
+          I specialize in HTML, CSS, JavaScript, and React, with a focus on building user-friendly interfaces that deliver exceptional user experiences. I've worked on diverse projects ranging from personal portfolios to e-commerce platforms.
         </p>
 
         <div class="skills">
-          <span class="skill">HTML</span>
-          <span class="skill">CSS</span>
+          <span class="skill">HTML5</span>
+          <span class="skill">CSS3</span>
           <span class="skill">JavaScript</span>
-          <span class="skill">React</span>
+          <span class="skill">React.js</span>
+          <span class="skill">Bootstrap</span>
           <span class="skill">Git</span>
-          <span class="skill">Figma</span>
+          <span class="skill">Responsive Design</span>
         </div>
         <div class="values">
           <div class="value-box">
-            <h3>Commitment</h3>
-            <p>I always meet deadlines and respect my clients’ time.</p>
+            <h3>Innovation</h3>
+            <p>I stay updated with the latest web technologies and trends to deliver cutting-edge solutions.</p>
           </div>
           <div class="value-box">
             <h3>Quality</h3>
-            <p>I pay attention to details and strive to deliver the best quality.</p>
+            <p>I believe in writing clean, maintainable code and creating pixel-perfect designs.</p>
           </div>
           <div class="value-box">
-            <h3>Communication</h3>
-            <p>I maintain continuous communication and value transparency in work.</p>
+            <h3>Collaboration</h3>
+            <p>I work closely with clients to ensure the final product exceeds expectations.</p>
           </div>
         </div>
       </div>
@@ -284,5 +109,6 @@
 integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
 crossorigin="anonymous">
 </script>
+<script src="./js/main.js"></script>
 </body>
 </html>
