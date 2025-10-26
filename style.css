@@ -1,7 +1,7 @@
-/* Main Stylesheet for Portfolio */
+/* Main Stylesheet for Portfolio - Modern Design */
 
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* Gradient Background */
 .gradient-background {
@@ -22,6 +22,44 @@
   }
 }
 
+/* Animated Background Gradient */
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-size: 200% 200%;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.floating {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
 /* Icon Square */
 .icon-square {
   width: 3rem;
@@ -39,9 +77,10 @@
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
-  background-color: #121212;
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
   color: #e0e0e0;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 /* Navbar Styles */
@@ -160,7 +199,7 @@ p {
   margin: 0;
 }
 
-/* Buttons */
+/* Enhanced 3D Buttons with larger size */
 .cta-buttons {
   display: flex;
   gap: 20px;
@@ -168,23 +207,90 @@ p {
 }
 
 .btn {
-  background-color: #4a90e2;
-  color: #fff;
-  padding: 12px 28px;
+  /* Larger button size as per user preference */
+  padding: 15px 25px;
+  font-size: 20px;
+  border-radius: 10px;
+  
+  /* 3D effect as per user preference */
+  background: linear-gradient(to bottom, #4a90e2, #357abd);
+  color: white;
   border: none;
-  border-radius: 30px;
-  font-size: 1.1rem;
   font-weight: 600;
   text-decoration: none;
   text-align: center;
-  transition: background-color 0.3s ease;
   user-select: none;
+  cursor: pointer;
+  
+  /* Layered box shadows for 3D effect */
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 6px 12px rgba(0, 0, 0, 0.2),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2);
+  
+  /* Smooth transitions */
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  position: relative;
 }
 
 .btn:hover {
-  background-color: #357abd;
-  cursor: pointer;
-  transform: scale(1.05);
+  /* Enhanced hover state */
+  background: linear-gradient(to bottom, #5aa0f2, #458ace);
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  /* Active state for press effect */
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(2px);
+}
+
+/* Specific button styles for Bootstrap buttons */
+.btn-outline-light {
+  /* Larger button size as per user preference */
+  padding: 15px 25px !important;
+  font-size: 20px !important;
+  border-radius: 10px !important;
+  
+  /* 3D effect as per user preference */
+  border: none !important;
+  font-weight: 600 !important;
+  
+  /* Layered box shadows for 3D effect */
+  box-shadow: 
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    0 6px 12px rgba(0, 0, 0, 0.2),
+    inset 0 2px 4px rgba(255, 255, 255, 0.2) !important;
+  
+  /* Smooth transitions */
+  transition: all 0.3s ease !important;
+  transform: translateY(0);
+}
+
+.btn-outline-light:hover {
+  /* Enhanced hover state */
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.3),
+    inset 0 2px 4px rgba(255, 255, 255, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+.btn-outline-light:active {
+  /* Active state for press effect */
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  transform: translateY(2px) !important;
 }
 
 /* Contact Form */
@@ -228,4 +334,228 @@ footer {
   .container {
     padding: 10px;
   }
+  
+  /* Adjust buttons for mobile */
+  .btn, .btn-outline-light {
+    padding: 12px 20px !important;
+    font-size: 18px !important;
+  }
+}
+
+/* Modern Enhancements */
+
+/* Navbar with gradient */
+.navbar {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:hover {
+  color: #00ffff !important;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Enhanced Profile Section */
+.hero-content h1 {
+  background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #b8b8b8;
+}
+
+/* Modern Card Design */
+.modern-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  transition: all 0.3s ease;
+}
+
+.modern-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+}
+
+/* Skill Tags Enhancement */
+.skill {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 102, 255, 0.1));
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.skill:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 102, 255, 0.2));
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+/* Value Box Enhancement */
+.value-box {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.value-box::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.value-box:hover::before {
+  opacity: 1;
+}
+
+.value-box:hover {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 102, 255, 0.15));
+  border-color: rgba(0, 255, 255, 0.5);
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3);
+}
+
+/* Contact Form Enhancement */
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.info-box {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 30px;
+  height: 100%;
+}
+
+.form-control {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #00ffff;
+  box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.1);
+  color: white;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Carousel Enhancement */
+.carousel-item img {
+  transition: transform 0.5s ease;
+}
+
+.carousel-item:hover img {
+  transform: scale(1.05);
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #00ffff;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  opacity: 0.8;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Footer Enhancement */
+.list-group-item svg {
+  transition: all 0.3s ease;
+}
+
+.list-group-item a:hover svg {
+  transform: scale(1.2);
+  fill: #00ffff;
+  filter: drop-shadow(0 0 10px #00ffff);
+}
+
+/* Image Enhancement */
+img.img-fluid {
+  border-radius: 20px;
+  transition: all 0.4s ease;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+img.img-fluid:hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: 0 30px 60px rgba(0, 255, 255, 0.2);
+}
+
+/* Project Cards */
+.project-card {
+  background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(0, 102, 255, 0.05));
+  border-radius: 15px;
+  padding: 20px;
+  margin: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00ffff, #0066ff);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #00cccc, #0055cc);
+}
+
+/* Page Specific Animations */
+.page-fade-in {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+section {
+  animation: fadeInUp 0.8s ease-out;
 }
