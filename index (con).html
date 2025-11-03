@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Mostafa</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Flowbite CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="./style.css" rel="stylesheet">
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      primary: '#4a90e2',
+                      secondary: '#00ffff',
+                      dark: '#0f0f0f',
+                      darker: '#1a1a2e',
+                      darkest: '#16213e',
+                  }
+              }
+          }
+      }
+  </script>
+  <style>
+      body {
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+          color: #e0e0e0;
+          overflow-x: hidden;
+      }
+      .navbar-custom {
+          backdrop-filter: blur(10px);
+          background: rgba(0, 0, 0, 0.7) !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gradient-text {
+          background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+      }
+      .contact-card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 20px;
+          transition: all 0.3s ease;
+      }
+      .contact-card:hover {
+          transform: translateY(-10px);
+          background: rgba(255, 255, 255, 0.08);
+          box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+      }
+      .info-item {
+          background: rgba(255, 255, 255, 0.03);
+          padding: 20px;
+          border-radius: 15px;
+          margin-bottom: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+      }
+      .info-item:hover {
+          background: rgba(0, 255, 255, 0.1);
+          border-color: rgba(0, 255, 255, 0.5);
+          transform: translateY(-5px);
+      }
+      .icon-box {
+          color: #00ffff;
+          font-size: 2rem;
+          margin-bottom: 10px;
+      }
+      .btn-3d {
+          padding: 15px 25px;
+          font-size: 20px;
+          border-radius: 10px;
+          background: linear-gradient(to bottom, #4a90e2, #357abd);
+          color: white;
+          font-weight: 600;
+          box-shadow: 
+              0 4px 8px rgba(0, 0, 0, 0.3),
+              0 6px 12px rgba(0, 0, 0, 0.2),
+              inset 0 2px 4px rgba(255, 255, 255, 0.2);
+          transition: all 0.3s ease;
+          transform: translateY(0);
+          position: relative;
+      }
+      .btn-3d:hover {
+          background: linear-gradient(to bottom, #5aa0f2, #458ace);
+          box-shadow: 
+              0 6px 12px rgba(0, 0, 0, 0.4),
+              0 8px 16px rgba(0, 0, 0, 0.3),
+              inset 0 2px 4px rgba(255, 255, 255, 0.3);
+          transform: translateY(-2px);
+      }
+      .btn-3d:active {
+          box-shadow: 
+              0 2px 4px rgba(0, 0, 0, 0.3),
+              0 4px 8px rgba(0, 0, 0, 0.2),
+              inset 0 2px 4px rgba(0, 0, 0, 0.2);
+          transform: translateY(2px);
+      }
+  </style>
+</head>
+<body class="bg-dark">
+  <!-- Header/Navigation -->
+  <nav class="navbar-custom sticky top-0 z-50">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <span class="self-center text-2xl font-semibold whitespace-nowrap gradient-text">Mostafa</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
+          <li>
+            <a href="./index.html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Home</a>
+          </li>
+          <li>
+            <a href="./index (abt).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">About</a>
+          </li>
+          <li>
+            <a href="./index (proj).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Projects</a>
+          </li>
+          <li>
+            <a href="./index (con).html" class="block py-2 px-3 text-white bg-blue-600 rounded md:bg-transparent md:text-blue-400 md:p-0" aria-current="page">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <div class="container mx-auto px-4 py-16">
+        <div class="text-center mb-16 animate__animated animate__fadeInUp">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Get In Touch!</h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                Have a project in mind or want to discuss potential opportunities? Feel free to reach out!<br />
+                I'm always open to new challenges and interesting projects.
+            </p>
+        </div>
+
+        <div class="animate__animated animate__fadeInUp">
+            <div class="contact-card p-8">
+                <h2 class="text-3xl font-bold mb-6 gradient-text">Contact Information</h2>
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    I'm currently available for freelance work, full-time positions, and interesting collaborations. 
+                    Feel free to reach out through any of the following channels:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="info-item p-6 rounded-xl">
+                        <div class="icon-box flex justify-center">
+                            <i class="fas fa-map-marker-alt text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2 text-center">Location</h3>
+                        <p class="text-gray-300 text-center">Banha, Egypt</p>
+                    </div>
+
+                    <div class="info-item p-6 rounded-xl">
+                        <div class="icon-box flex justify-center">
+                            <i class="fas fa-phone text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2 text-center">Phone</h3>
+                        <p class="text-gray-300 text-center">+2001558108823</p>
+                    </div>
+
+                    <div class="info-item p-6 rounded-xl">
+                        <div class="icon-box flex justify-center">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2 text-center">Email</h3>
+                        <p class="text-gray-300 text-center">am1231923@gmail.com</p>
+                    </div>
+                    
+                    <div class="info-item p-6 rounded-xl">
+                        <div class="icon-box flex justify-center">
+                            <i class="fab fa-linkedin-in text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2 text-center">LinkedIn</h3>
+                        <p class="text-gray-300 text-center">linkedin.com/in/mostafa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="text-center mt-16 animate__animated animate__fadeInUp">
+            <h3 class="text-2xl font-bold mb-6 gradient-text">Let's Work Together</h3>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                Whether you have a project in mind, a question about my work, or just want to connect, 
+                I'd love to hear from you. I typically respond within 24 hours.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:am1231923@gmail.com" class="btn-3d text-center">
+                    <i class="fas fa-paper-plane mr-2"></i> Email Me
+                </a>
+                <a href="tel:+2001558108823" class="btn-3d text-center bg-gradient-to-r from-purple-600 to-indigo-600">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Me
+                </a>
+            </div>
+        </div>
+    </div>
+
+  <!-- Demo Message Modal -->
+  <div id="demoModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+    <div class="bg-gray-800 rounded-lg p-8 max-w-md w-full mx-4 border border-cyan-500">
+      <div class="text-center">
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-cyan-900">
+          <i class="fas fa-info-circle text-cyan-400 text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mt-4">Demo Form</h3>
+        <p class="text-gray-300 mt-2">
+          This is a demonstration form only. In a real implementation, this would connect to a backend service to send your message.
+        </p>
+        <p class="text-gray-300 mt-2">
+          To contact me, please use the contact information provided in the contact info section.
+        </p>
+        <button onclick="closeDemoModal()" class="mt-6 btn-3d px-6 py-2">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-6">
+        <p class="text-lg">© 2025 Mostafa. All rights reserved.</p>
+      </div>
+      <div class="flex justify-center space-x-6">
+        <a href="https://www.instagram.com/_mo_s_ta_fa?igsh=amx1MXJveWdiaDMw" target="_blank" class="hover:text-secondary transition duration-300">
+          <i class="fab fa-instagram text-2xl"></i>
+        </a>
+        <a href="https://www.facebook.com/share/1AfRUZkiwo/" target="_blank" class="hover:text-secondary transition duration-300">
+          <i class="fab fa-facebook text-2xl"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    // Theme toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
+      
+      // Check for saved theme preference or respect OS preference
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+        document.body.classList.add('light-mode');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+      
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        if (document.body.classList.contains('light-mode')) {
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+          localStorage.setItem('theme', 'light');
+        } else {
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
