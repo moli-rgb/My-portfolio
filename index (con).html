@@ -1,238 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Me</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link href="./style.css" rel="stylesheet">
-  </head>
-  <body style="background-color: black">
-    <!-- header -->
-<nav class="navbar navbar-expand-lg" style="background-color: black; padding: 20px 0;">
-  <div class="container">
-    <!-- زر الهامبرجر -->
-    <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-    </button>
-
-    <!-- Offcanvas (بيشتغل للشاشة الصغيرة) -->
-    <div class="offcanvas offcanvas-start bg-black text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <!-- نفس عناصر النافبار هنا -->
-        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3 fs-5">
-          <li class="nav-item"><a class="nav-link text-white" href="./index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="./index (abt).html">About Me</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">Resume</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">Services</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">Portfolio</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Resources
-            </a>
-            <ul class="dropdown-menu bg-dark">
-              <li><a class="dropdown-item text-white" href="#">Tutorials</a></li>
-              <li><a class="dropdown-item text-white" href="#">Blog</a></li>
-              <li><a class="dropdown-item text-white" href="#">Tools</a></li>
-              <li><a class="dropdown-item text-white" href="#">Documentation</a></li>
-              <li><a class="dropdown-item text-white" href="#">Community</a></li>
-            </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Mostafa</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Flowbite CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="./style.css" rel="stylesheet">
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      primary: '#4a90e2',
+                      secondary: '#00ffff',
+                      dark: '#0f0f0f',
+                      darker: '#1a1a2e',
+                      darkest: '#16213e',
+                  }
+              }
+          }
+      }
+  </script>
+  <style>
+      body {
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+          color: #e0e0e0;
+          overflow-x: hidden;
+      }
+      .navbar-custom {
+          backdrop-filter: blur(10px);
+          background: rgba(0, 0, 0, 0.7) !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gradient-text {
+          background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+      }
+      .contact-card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 20px;
+          transition: all 0.3s ease;
+      }
+      .contact-card:hover {
+          transform: translateY(-10px);
+          background: rgba(255, 255, 255, 0.08);
+          box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+      }
+      .info-item {
+          background: rgba(255, 255, 255, 0.03);
+          padding: 20px;
+          border-radius: 15px;
+          margin-bottom: 20px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+      }
+      .info-item:hover {
+          background: rgba(0, 255, 255, 0.1);
+          border-color: rgba(0, 255, 255, 0.5);
+          transform: translateY(-5px);
+      }
+      .icon-box {
+          color: #00ffff;
+          font-size: 2rem;
+          margin-bottom: 10px;
+      }
+      .btn-3d {
+          padding: 15px 25px;
+          font-size: 20px;
+          border-radius: 10px;
+          background: linear-gradient(to bottom, #4a90e2, #357abd);
+          color: white;
+          font-weight: 600;
+          box-shadow: 
+              0 4px 8px rgba(0, 0, 0, 0.3),
+              0 6px 12px rgba(0, 0, 0, 0.2),
+              inset 0 2px 4px rgba(255, 255, 255, 0.2);
+          transition: all 0.3s ease;
+          transform: translateY(0);
+          position: relative;
+      }
+      .btn-3d:hover {
+          background: linear-gradient(to bottom, #5aa0f2, #458ace);
+          box-shadow: 
+              0 6px 12px rgba(0, 0, 0, 0.4),
+              0 8px 16px rgba(0, 0, 0, 0.3),
+              inset 0 2px 4px rgba(255, 255, 255, 0.3);
+          transform: translateY(-2px);
+      }
+      .btn-3d:active {
+          box-shadow: 
+              0 2px 4px rgba(0, 0, 0, 0.3),
+              0 4px 8px rgba(0, 0, 0, 0.2),
+              inset 0 2px 4px rgba(0, 0, 0, 0.2);
+          transform: translateY(2px);
+      }
+  </style>
+</head>
+<body class="bg-dark">
+  <!-- Header/Navigation -->
+  <nav class="navbar-custom sticky top-0 z-50">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+        <span class="self-center text-2xl font-semibold whitespace-nowrap gradient-text">Mostafa</span>
+      </a>
+      <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+      </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
+          <li>
+            <a href="./index.html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Home</a>
+          </li>
+          <li>
+            <a href="./index (abt).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">About</a>
+          </li>
+          <li>
+            <a href="./index (proj).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Projects</a>
+          </li>
+          <li>
+            <a href="./index (con).html" class="block py-2 px-3 text-white bg-blue-600 rounded md:bg-transparent md:text-blue-400 md:p-0" aria-current="page">Contact</a>
           </li>
         </ul>
       </div>
     </div>
+  </nav>
+
+  <!-- Contact Section -->
+  <div class="container mx-auto px-4 py-16">
+        <div class="text-center mb-16 animate__animated animate__fadeInUp">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Get In Touch!</h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                Have a project in mind or want to discuss potential opportunities? Feel free to reach out!<br />
+                I'm always open to new challenges and interesting projects.
+            </p>
+        </div>
+
+        <div class="animate__animated animate__fadeInUp">
+            <div class="contact-card p-8">
+                <h2 class="text-3xl font-bold mb-6 gradient-text">Contact Information</h2>
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    I'm currently available for freelance work, full-time positions, and interesting collaborations. 
+                    Feel free to reach out through any of the following channels:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="info-item p-6 rounded-xl">
+                        <div class="icon-box flex justify-center">
+                            <i class="fas fa-map-marker-alt text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2 text-center">Location</h3>
+                        <p class="text-gray-300 text-center">Banha, Egypt</p>
+                    </div>
+
+                    <div class="info-item p-6 rounded-xl">
+                        <div class="icon-box flex justify-center">
+                            <i class="fas fa-phone text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2 text-center">Phone</h3>
+                        <p class="text-gray-300 text-center">+2001558108823</p>
+                    </div>
+
+                    <div class="info-item p-6 rounded-xl">
+                        <div class="icon-box flex justify-center">
+                            <i class="fas fa-envelope text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2 text-center">Email</h3>
+                        <p class="text-gray-300 text-center">am1231923@gmail.com</p>
+                    </div>
+                    
+                    <div class="info-item p-6 rounded-xl">
+                        <div class="icon-box flex justify-center">
+                            <i class="fab fa-linkedin-in text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-secondary mb-2 text-center">LinkedIn</h3>
+                        <p class="text-gray-300 text-center">linkedin.com/in/mostafa</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="text-center mt-16 animate__animated animate__fadeInUp">
+            <h3 class="text-2xl font-bold mb-6 gradient-text">Let's Work Together</h3>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
+                Whether you have a project in mind, a question about my work, or just want to connect, 
+                I'd love to hear from you. I typically respond within 24 hours.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:am1231923@gmail.com" class="btn-3d text-center">
+                    <i class="fas fa-paper-plane mr-2"></i> Email Me
+                </a>
+                <a href="tel:+2001558108823" class="btn-3d text-center bg-gradient-to-r from-purple-600 to-indigo-600">
+                    <i class="fas fa-phone-alt mr-2"></i> Call Me
+                </a>
+            </div>
+        </div>
+    </div>
+
+  <!-- Demo Message Modal -->
+  <div id="demoModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+    <div class="bg-gray-800 rounded-lg p-8 max-w-md w-full mx-4 border border-cyan-500">
+      <div class="text-center">
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-cyan-900">
+          <i class="fas fa-info-circle text-cyan-400 text-xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mt-4">Demo Form</h3>
+        <p class="text-gray-300 mt-2">
+          This is a demonstration form only. In a real implementation, this would connect to a backend service to send your message.
+        </p>
+        <p class="text-gray-300 mt-2">
+          To contact me, please use the contact information provided in the contact info section.
+        </p>
+        <button onclick="closeDemoModal()" class="mt-6 btn-3d px-6 py-2">
+          Close
+        </button>
+      </div>
+    </div>
   </div>
-</nav>
-    <!-- contact me -->
-    <main
-      class="d-flex flex-column justify-content-center align-items-center text-center text-white px-3"
-      style="background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%); padding: 80px 20px 40px;"
-    >
-      <h1 style="background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 3.5rem; font-weight: 700; margin-bottom: 20px;">Contact Me!</h1>
-      <p class="lead" style="color: #b8b8b8; line-height: 1.8; font-size: 1.2rem;">
-        Have a project in mind or want to discuss potential opportunities? Feel free to reach out!<br />
-        I'm always open to new challenges and interesting projects.
-      </p>
-    </main>
-    <!--two column -->
-    <div
-      class="container aos-init aos-animate text-white mb-5"
-      data-aos="fade-up"
-      data-aos-delay="100"
-      style="background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%); padding: 40px 20px;"
-    >
-      <div class="row g-4 g-lg-5">
-        <div class="col-lg-5">
-          <div
-            class="info-box neon-shadow aos-init aos-animate"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <h3 style="color: #00ffff; font-weight: 600;">Contact Info</h3>
-            <p style="color: #b8b8b8; line-height: 1.8;">
-              Get in touch with me! Whether you have a project in mind or just want to connect, I'd love to hear from you.
-            </p>
 
-            <div
-              class="info-item aos-init aos-animate"
-              data-aos="fade-up"
-              data-aos-delay="300"
-              style="background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.1);"
-            >
-              <div class="icon-box" style="color: #00ffff; font-size: 2rem; margin-bottom: 10px;">
-                📍
-              </div>
-              <div class="content">
-                <h4 style="color: #00ffff; font-weight: 600;">Location</h4>
-                <p style="color: #b8b8b8;">Banha, Egypt</p>
-              </div>
-            </div>
-
-            <div
-              class="info-item aos-init aos-animate"
-              data-aos="fade-up"
-              data-aos-delay="400"
-              style="background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.1);"
-            >
-              <div class="icon-box" style="color: #00ffff; font-size: 2rem; margin-bottom: 10px;">
-                📞
-              </div>
-              <div class="content">
-                <h4 style="color: #00ffff; font-weight: 600;">Phone</h4>
-                <p style="color: #b8b8b8;">+2001558108823</p>
-              </div>
-            </div>
-
-            <div
-              class="info-item aos-init aos-animate"
-              data-aos="fade-up"
-              data-aos-delay="500"
-              style="background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 15px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.1);"
-            >
-              <div class="icon-box" style="color: #00ffff; font-size: 2rem; margin-bottom: 10px;">
-                ✉️
-              </div>
-              <div class="content">
-                <h4 style="color: #00ffff; font-weight: 600;">Email</h4>
-                  <p style="color: #b8b8b8;">am1231923@gmail.com</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-7">
-          <div
-            class="contact-form neon-shadow aos-init aos-animate"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <h3 style="color: #00ffff; font-weight: 600;">Get In Touch</h3>
-            <p style="color: #b8b8b8; line-height: 1.8;">
-              Feel free to send me a message and I'll get back to you as soon as possible.
-            </p>
-            <p style="color: #888; font-size: 0.9rem;">
-              Note: To make this form work, replace "YOUR_FORM_ID" in the form action with your actual Formspree form ID.
-            </p>
-
-            <form
-              action="https://formspree.io/f/YOUR_FORM_ID"
-              method="POST"
-              class="php-email-form aos-init aos-animate"
-              data-aos="fade-up"
-              data-aos-delay="200"
-            >
-              <div class="row gy-4">
-                <div class="col-md-6">
-                  <input
-                    type="text"
-                    name="name"
-                    class="form-control"
-                    placeholder="Your Name"
-                    required
-                  />
-                </div>
-
-                <div class="col-md-6">
-                  <input
-                    type="email"
-                    class="form-control"
-                    name="email"
-                    placeholder="Your Email"
-                    required
-                  />
-                </div>
-
-                <div class="col-12">
-                  <input
-                    type="text"
-                    class="form-control"
-                    name="subject"
-                    placeholder="Subject"
-                    required
-                  />
-                </div>
-
-                <div class="col-12">
-                  <textarea
-                    class="form-control"
-                    name="message"
-                    rows="6"
-                    placeholder="Message"
-                    required
-                  ></textarea>
-                </div>
-
-                <div class="col-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">
-                    Your message has been sent. Thank you!
-                  </div>
-
-                  <button type="submit" class="btn btn-primary" style="background: linear-gradient(135deg, #00ffff, #0066ff); border: none; padding: 12px 40px; font-size: 1.1rem; font-weight: 600; border-radius: 50px; box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3); transition: all 0.3s ease;">
-                    Send Message
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
+  <!-- Footer -->
+  <footer class="footer-custom">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-6">
+        <p class="text-lg">© 2025 Mostafa. All rights reserved.</p>
+      </div>
+      <div class="flex justify-center space-x-6">
+        <a href="https://www.instagram.com/_mo_s_ta_fa?igsh=amx1MXJveWdiaDMw" target="_blank" class="hover:text-secondary transition duration-300">
+          <i class="fab fa-instagram text-2xl"></i>
+        </a>
+        <a href="https://www.facebook.com/share/1AfRUZkiwo/" target="_blank" class="hover:text-secondary transition duration-300">
+          <i class="fab fa-facebook text-2xl"></i>
+        </a>
       </div>
     </div>
-    <!-- fotter -->
-    <div
-      class="d-flex justify-content-center py-0 my-0"
-      style="background-color: black"
-    >
-      <ul class="list-group list-group-flush text-center bg-black">
-        <li class="list-group-item bg-black border-0">
-          <p class="mb-0 text-center text-white fs-4">© 2025 Mostafa.</p>
-        </li>
-              <div class="d-flex justify-content-center row">
-        <li class="list-group-item bg-black border-0 col pr-0"> <a href="https://www.instagram.com/_mo_s_ta_fa?igsh=amx1MXJveWdiaDMw" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-instagram" viewBox="0 0 16 16">
-            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg></a>
-        </li>
-        <li class="list-group-item bg-black border-0 col pl-0"><a href="https://www.facebook.com/share/1AfRUZkiwo/" target="_blank"> 
-         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-facebook" viewBox="0 0 16 16">
-            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></svg></a>
-        </li>
-      </div>
-      </ul>
-    </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
-    <script src="./js/main.js"></script>
-  </body>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+  <script src="./js/main.js"></script>
+  <script>
+    // Theme toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeIcon = document.getElementById('theme-icon');
+      
+      // Check for saved theme preference or respect OS preference
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+        document.body.classList.add('light-mode');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      }
+      
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        if (document.body.classList.contains('light-mode')) {
+          themeIcon.classList.remove('fa-moon');
+          themeIcon.classList.add('fa-sun');
+          localStorage.setItem('theme', 'light');
+        } else {
+          themeIcon.classList.remove('fa-sun');
+          themeIcon.classList.add('fa-moon');
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    });
+  </script>
+</body>
 </html>

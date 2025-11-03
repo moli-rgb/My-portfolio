@@ -3,92 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
-    crossorigin="anonymous">
+    <title>Mostafa's Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flowbite CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link href="./style.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4a90e2',
+                        secondary: '#00ffff',
+                        dark: '#0f0f0f',
+                        darker: '#1a1a2e',
+                        darkest: '#16213e',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .btn-3d {
+            padding: 15px 25px;
+            font-size: 20px;
+            border-radius: 10px;
+            background: linear-gradient(to bottom, #4a90e2, #357abd);
+            color: white;
+            font-weight: 600;
+            box-shadow: 
+                0 4px 8px rgba(0, 0, 0, 0.3),
+                0 6px 12px rgba(0, 0, 0, 0.2),
+                inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            transform: translateY(0);
+            position: relative;
+        }
+        .btn-3d:hover {
+            background: linear-gradient(to bottom, #5aa0f2, #458ace);
+            box-shadow: 
+                0 6px 12px rgba(0, 0, 0, 0.4),
+                0 8px 16px rgba(0, 0, 0, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        .btn-3d:active {
+            box-shadow: 
+                0 2px 4px rgba(0, 0, 0, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.2),
+                inset 0 2px 4px rgba(0, 0, 0, 0.2);
+            transform: translateY(2px);
+        }
+        .navbar-custom {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.7) !important;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        #typing-text {
+            border-right: 3px solid #00ffff;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #00ffff; }
+        }
+    </style>
 </head>
-<body>
-    <!-- header -->
-<nav class="navbar navbar-expand-lg" style="background-color: black; padding: 20px 0;">
-  <div class="container">
-    <!-- زر الهامبرجر -->
-    <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
-    </button>
-
-    <!-- Offcanvas (بيشتغل للشاشة الصغيرة) -->
-    <div class="offcanvas offcanvas-start bg-black text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <!-- نفس عناصر النافبار هنا -->
-        <ul class="navbar-nav justify-content-start flex-grow-1 pe-3 fs-5">
-          <li class="nav-item"><a class="nav-link text-white" href="./index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="./index (abt).html">About Me</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">Resume</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">Services</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="#">Portfolio</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Resources
+<body class="bg-dark">
+    <!-- Header/Navigation -->
+    <nav class="navbar-custom sticky top-0 z-50">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap gradient-text">Mostafa</span>
             </a>
-            <ul class="dropdown-menu bg-dark">
-              <li><a class="dropdown-item text-white" href="#">Tutorials</a></li>
-              <li><a class="dropdown-item text-white" href="#">Blog</a></li>
-              <li><a class="dropdown-item text-white" href="#">Tools</a></li>
-              <li><a class="dropdown-item text-white" href="#">Documentation</a></li>
-              <li><a class="dropdown-item text-white" href="#">Community</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</nav>
-<!-- Me -->
- <section style="background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%); min-height: 90vh; display: flex; align-items: center;">
-    <div class="container col-xxl-8 px-4 py-5"> 
-        <div class="row flex-lg-row-reverse align-items-center g-5 py-5"> 
-            <div class="col-10 col-sm-8 col-lg-6">
-                <div class="container">
-                 <img src="./images/me.png" class="d-block mx-lg-auto img-fluid rounded-4 floating" alt="Bootstrap Themes" style="background: transparent;" loading="lazy">
-                </div> 
-                 </div> 
-                 <div class="col-lg-6 hero-content" style="color: white;">   
-                      <h1 class="display-5 fw-bold mb-3 fade-in-up"><span class="the_name" style="color: #00ffff; cursor: pointer; background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Hi there! I'm Mostafa</span></h1>
-                     <p class="lead fade-in-up">I'm a passionate web developer specializing in creating modern, responsive websites and applications. With expertise in HTML, CSS, JavaScript, and React, I build user-friendly interfaces that deliver exceptional user experiences.</p> 
-                     <div class="d-grid gap-2 d-md-flex justify-content-md-start fade-in-up" style="animation-delay: 0.2s;"> 
-                        <a href="./index (proj).html" class="btn btn-outline-light btn-lg px-4 me-md-2 rounded-5" style="background: linear-gradient(135deg, #00ffff, #0066ff); border: none;">View Projects</a>
-                        <a href="./index (con).html" class="btn btn-outline-light btn-lg px-4 me-md-2 rounded-5" style="background: linear-gradient(135deg, #0066ff, #00ffff); border: none;">Get in touch</a>
-                     </div>
-                 </div> 
-            </div> 
-        </div> 
-    </div>
- </section>
-<!-- fotter -->
- <div class="d-flex justify-content-center py-0 my-0" style="background-color: black;">  
-    <ul class="list-group list-group-flush text-center bg-black">
-        <li class="list-group-item bg-black border-0"><p class="mb-0 text-center text-white fs-5">© 2025 Mostafa.</p></li>
-      <div class="d-flex justify-content-center row">
-        <li class="list-group-item bg-black border-0 col pr-0"> <a href="https://www.instagram.com/_mo_s_ta_fa?igsh=amx1MXJveWdiaDMw" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-instagram" viewBox="0 0 16 16">
-            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334"/></svg></a>
-        </li>
-        <li class="list-group-item bg-black border-0 col pl-0"><a href="https://www.facebook.com/share/1AfRUZkiwo/" target="_blank"> 
-         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="white" class="bi bi-facebook" viewBox="0 0 16 16">
-            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951"/></svg></a>
-        </li>
-      </div>
-    </ul> 
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
-crossorigin="anonymous">
-</script>
-<script src="./js/main.js"></script>
+            <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+            <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+                <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
+                    <li>
+                        <a href="./index.html" class="block py-2 px-3 text-white bg-blue-600 rounded md:bg-transparent md:text-blue-400 md:p-0" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="./index (abt).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">About</a>
+                    </li>
+                    <li>
+                        <a href="./index (proj).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Projects</a>
+                    </li>
+                    <li>
+                        <a href="./index (con).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center">
+        <div class="container mx-auto px-4 py-16">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <div class="lg:w-1/2 text-center lg:text-left animate__animated animate__fadeInLeft">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 gradient-text">
+                        Hi there! I'm Mostafa
+                    </h1>
+                    <div class="text-2xl text-gray-300 mb-8 min-h-[60px]">
+                        <span id="typing-text" class="text-cyan-400"></span>
+                    </div>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        I'm a passionate web developer specializing in creating modern, responsive websites and applications. With expertise in HTML, CSS, JavaScript, and React, I build user-friendly interfaces that deliver exceptional user experiences.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="./index (proj).html" class="btn-3d text-center">
+                            View Projects
+                        </a>
+                        <a href="./index (con).html" class="btn-3d text-center bg-gradient-to-r from-purple-600 to-indigo-600">
+                            Get in touch
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center animate__animated animate__fadeInRight">
+                    <div class="relative">
+                        <div class="floating w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-secondary shadow-2xl shadow-cyan-500/50">
+                            <img src="./images/me.png" alt="Mostafa" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-purple-600 animate-ping opacity-20"></div>
+                        <div class="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-cyan-500 animate-ping opacity-20"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-custom">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-6">
+                <p class="text-lg">© 2025 Mostafa. All rights reserved.</p>
+            </div>
+            <div class="flex justify-center space-x-6">
+                <a href="https://www.instagram.com/_mo_s_ta_fa?igsh=amx1MXJveWdiaDMw" target="_blank" class="hover:text-secondary transition duration-300">
+                    <i class="fab fa-instagram text-2xl"></i>
+                </a>
+                <a href="https://www.facebook.com/share/1AfRUZkiwo/" target="_blank" class="hover:text-secondary transition duration-300">
+                    <i class="fab fa-facebook text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        // Typing effect
+        const texts = [
+            "Web Developer",
+            "UI/UX Designer",
+            "Frontend Specialist",
+            "React Developer"
+        ];
+        let count = 0;
+        let index = 0;
+        let currentText = '';
+        let letter = '';
+        
+        (function type() {
+            if (count === texts.length) {
+                count = 0;
+            }
+            currentText = texts[count];
+            letter = currentText.slice(0, ++index);
+            
+            document.getElementById('typing-text').textContent = letter;
+            if (letter.length === currentText.length) {
+                count++;
+                index = 0;
+                setTimeout(type, 2000);
+            } else {
+                setTimeout(type, 100);
+            }
+        }());
+    </script>
 </body>
 </html>

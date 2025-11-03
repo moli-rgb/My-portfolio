@@ -29,7 +29,12 @@
 - Deleted unused CSS files
 - Maintained all necessary styling for the portfolio
 
-## 6. Additional Improvements
+## 6. Project Showcase Enhancement
+- Replaced the simple pricing page with a full-stack e-commerce application
+- Added a modern, responsive e-commerce store with product listings, cart functionality, and order processing
+- Maintained all existing projects in the showcase
+
+## 7. Additional Improvements
 - Added proper meta tags and structured data
 - Improved responsive design
 - Enhanced accessibility
@@ -41,3 +46,5 @@
 3. Customize the dropdown menu items to match your actual resources
 4. Add your actual project information to the projects carousel
 5. Customize the skills section to accurately reflect your expertise
+6. Set up the PostgreSQL database for the e-commerce store
+7. Configure the .env file with your database credentials for the e-commerce backend
