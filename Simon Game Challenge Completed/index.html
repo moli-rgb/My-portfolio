@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Game</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            color: #00f0ff;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 240, 255, 0.7);
+        }
+        
+        .game-description {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+        
+        .game-container {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+        
+        .game-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 150px);
+            grid-template-rows: repeat(2, 150px);
+            gap: 10px;
+            margin: 30px auto;
+            max-width: 320px;
+        }
+        
+        .btn {
+            border-radius: 15px;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .red {
+            background-color: #c43c3c;
+        }
+        
+        .red.active {
+            background-color: #ff5252;
+            box-shadow: 0 0 20px #ff5252;
+        }
+        
+        .blue {
+            background-color: #4285f4;
+        }
+        
+        .blue.active {
+            background-color: #5a9bff;
+            box-shadow: 0 0 20px #5a9bff;
+        }
+        
+        .green {
+            background-color: #00b341;
+        }
+        
+        .green.active {
+            background-color: #00ff5e;
+            box-shadow: 0 0 20px #00ff5e;
+        }
+        
+        .yellow {
+            background-color: #ffb700;
+        }
+        
+        .yellow.active {
+            background-color: #ffd149;
+            box-shadow: 0 0 20px #ffd149;
+        }
+        
+        .controls {
+            margin: 20px 0;
+        }
+        
+        .btn-lg {
+            background: linear-gradient(135deg, #00ffff, #0066ff);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: all 0.3s;
+        }
+        
+        .btn-lg:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 240, 255, 0.4);
+        }
+        
+        .level-title {
+            font-size: 2rem;
+            margin: 20px 0;
+            color: #00f0ff;
+        }
+        
+        .instructions {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: left;
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+        
+        .instructions h2 {
+            color: #00f0ff;
+            margin-top: 0;
+        }
+        
+        .instructions ul {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        
+        .back-link {
+            margin-top: 30px;
+            display: inline-block;
+            color: #00f0ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            border: 1px solid #00f0ff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background: rgba(0, 240, 255, 0.1);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simon Game</h1>
+        
+        <p class="game-description">
+            Test your memory skills with this classic Simon game! Watch the sequence of colors and sounds, 
+            then repeat it back. Each level adds one more step to the sequence. How many levels can you complete?
+        </p>
+        
+        <div class="game-container">
+            <h2 class="level-title">Level <span id="level">0</span></h2>
+            
+            <div class="game-buttons">
+                <button type="button" id="green" class="btn green"></button>
+                <button type="button" id="red" class="btn red"></button>
+                <button type="button" id="yellow" class="btn yellow"></button>
+                <button type="button" id="blue" class="btn blue"></button>
+            </div>
+            
+            <div class="controls">
+                <button id="start-btn" class="btn-lg">Start Game</button>
+                <button id="reset-btn" class="btn-lg">Reset</button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h2>How to Play</h2>
+            <ul>
+                <li>Click "Start Game" to begin</li>
+                <li>Watch the sequence of colors that light up</li>
+                <li>Repeat the sequence by clicking the same colors in the same order</li>
+                <li>Each successful round adds one more color to the sequence</li>
+                <li>If you make a mistake, the game ends and you can start over</li>
+                <li>Try to get the highest score possible!</li>
+            </ul>
+        </div>
+        
+        <a href="../index (proj).html" class="back-link">← Back to Projects</a>
+    </div>
+
+    <script>
+        // Game variables
+        let gamePattern = [];
+        let userClickedPattern = [];
+        let level = 0;
+        let started = false;
+        
+        // Button colors
+        const buttonColors = ["green", "red", "yellow", "blue"];
+        
+        // DOM elements
+        const startButton = document.getElementById("start-btn");
+        const resetButton = document.getElementById("reset-btn");
+        const levelDisplay = document.getElementById("level");
+        
+        // Add event listeners
+        startButton.addEventListener("click", startGame);
+        resetButton.addEventListener("click", resetGame);
+        
+        // Add event listeners to color buttons
+        document.querySelectorAll(".btn").forEach(button => {
+            button.addEventListener("click", function() {
+                if (started) {
+                    const userChosenColor = this.id;
+                    userClickedPattern.push(userChosenColor);
+                    
+                    playSound(userChosenColor);
+                    animatePress(userChosenColor);
+                    
+                    checkAnswer(userClickedPattern.length - 1);
+                }
+            });
+        });
+        
+        // Start the game
+        function startGame() {
+            if (!started) {
+                level = 0;
+                gamePattern = [];
+                userClickedPattern = [];
+                started = true;
+                nextSequence();
+            }
+        }
+        
+        // Reset the game
+        function resetGame() {
+            level = 0;
+            gamePattern = [];
+            userClickedPattern = [];
+            started = false;
+            levelDisplay.textContent = "0";
+        }
+        
+        // Generate next sequence
+        function nextSequence() {
+            userClickedPattern = [];
+            level++;
+            levelDisplay.textContent = level;
+            
+            const randomNumber = Math.floor(Math.random() * 4);
+            const randomChosenColor = buttonColors[randomNumber];
+            gamePattern.push(randomChosenColor);
+            
+            // Animate the randomly chosen color
+            setTimeout(() => {
+                animatePress(randomChosenColor);
+                playSound(randomChosenColor);
+            }, 500);
+        }
+        
+        // Animate button press
+        function animatePress(currentColor) {
+            const button = document.getElementById(currentColor);
+            button.classList.add("active");
+            
+            setTimeout(() => {
+                button.classList.remove("active");
+            }, 300);
+        }
+        
+        // Play sound for button
+        function playSound(name) {
+            // In a real implementation, you would play actual sounds
+            // For this demo, we'll just log to console
+            console.log("Playing sound: " + name);
+        }
+        
+        // Check user's answer
+        function checkAnswer(currentLevel) {
+            if (gamePattern[currentLevel] === userClickedPattern[currentLevel]) {
+                if (userClickedPattern.length === gamePattern.length) {
+                    setTimeout(() => {
+                        nextSequence();
+                    }, 1000);
+                }
+            } else {
+                // Game over
+                console.log("Wrong answer - Game over!");
+                resetGame();
+                alert("Game Over! You reached level " + (level - 1));
+            }
+        }
+    </script>
+</body>
+</html>
