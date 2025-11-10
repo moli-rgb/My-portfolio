@@ -9,7 +9,7 @@
   <!-- Flowbite CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Animate.css -->
@@ -25,6 +25,12 @@
                       dark: '#0f0f0f',
                       darker: '#1a1a2e',
                       darkest: '#16213e',
+                      cyber: '#00f0ff',
+                      neon: '#00ffff'
+                  },
+                  fontFamily: {
+                      'orbitron': ['Orbitron', 'sans-serif'],
+                      'poppins': ['Poppins', 'sans-serif']
                   }
               }
           }
@@ -37,16 +43,119 @@
           color: #e0e0e0;
           overflow-x: hidden;
       }
+      body::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: 
+              linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+          background-size: 30px 30px;
+          z-index: -1;
+          pointer-events: none;
+      }
       .navbar-custom {
           backdrop-filter: blur(10px);
           background: rgba(0, 0, 0, 0.7) !important;
-          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          border-bottom: 1px solid rgba(0, 240, 255, 0.3);
       }
       .gradient-text {
           background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+      }
+      .cyber-text {
+          font-family: 'Orbitron', sans-serif;
+          letter-spacing: 1px;
+      }
+      /* Glitch Effect */
+      .glitch {
+          position: relative;
+          display: inline-block;
+      }
+      .glitch::before,
+      .glitch::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
+      .glitch:hover::before {
+          animation: glitch-anim-1 0.3s linear infinite;
+          clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+          transform: translate(-2px, -2px);
+      }
+      .glitch:hover::after {
+          animation: glitch-anim-2 0.3s linear infinite;
+          clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+          transform: translate(2px, 2px);
+      }
+      @keyframes glitch-anim-1 {
+          0% { transform: translate(0); }
+          20% { transform: translate(-3px, 3px); }
+          40% { transform: translate(-3px, -3px); }
+          60% { transform: translate(3px, 3px); }
+          80% { transform: translate(3px, -3px); }
+          to { transform: translate(0); }
+      }
+      @keyframes glitch-anim-2 {
+          0% { transform: translate(0); }
+          20% { transform: translate(3px, 3px); }
+          40% { transform: translate(-3px, -3px); }
+          60% { transform: translate(3px, 3px); }
+          80% { transform: translate(-3px, 3px); }
+          to { transform: translate(0); }
+      }
+      /* Hologram Effect */
+      .hologram {
+          position: relative;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(0, 240, 255, 0.3);
+          border-radius: 20px;
+          overflow: hidden;
+          transition: all 0.3s ease;
+      }
+      .hologram::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(45deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+          transform: rotate(45deg);
+          animation: sweep 3s infinite linear;
+          pointer-events: none;
+      }
+      @keyframes sweep {
+          0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+          100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      }
+      /* Pulse Effect */
+      .pulse {
+          animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+          0% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.4); }
+          70% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); }
+      }
+      /* Neon Glow */
+      .neon-glow {
+          text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+      /* Mouse Move Effect */
+      .mouse-move-element {
+          transition: transform 0.3s ease-out;
+          transform-style: preserve-3d;
+          will-change: transform;
       }
       .contact-card {
           background: rgba(255, 255, 255, 0.05);
@@ -108,6 +217,38 @@
               inset 0 2px 4px rgba(0, 0, 0, 0.2);
           transform: translateY(2px);
       }
+      /* Language Card Styles */
+      .language-card {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(5px);
+      }
+      .language-card:hover {
+          background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 102, 255, 0.15));
+          border-color: rgba(0, 255, 255, 0.5);
+          transform: translateY(-5px);
+          box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+      }
+      .language-name {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+          color: #fff;
+      }
+      .language-level {
+          font-size: 0.9rem;
+          color: #b8b8b8;
+      }
+      /* Footer */
+      .footer-custom {
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(10px);
+          border-top: 1px solid rgba(0, 240, 255, 0.3);
+          padding: 2rem 0;
+          margin-top: 4rem;
+      }
   </style>
 </head>
 <body class="bg-dark">
@@ -115,7 +256,7 @@
   <nav class="navbar-custom sticky top-0 z-50">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <span class="self-center text-2xl font-semibold whitespace-nowrap gradient-text">Mostafa</span>
+        <span class="self-center text-2xl font-bold whitespace-nowrap gradient-text cyber-text glitch" data-text="Mostafa">Mostafa</span>
       </a>
       <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
         <span class="sr-only">Open main menu</span>
@@ -126,26 +267,31 @@
       <div class="hidden w-full md:block md:w-auto" id="navbar-default">
         <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
           <li>
-            <a href="./index.html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Home</a>
+            <a href="./index.html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-cyber md:p-0 transition duration-300 neon-glow">Home</a>
           </li>
           <li>
-            <a href="./index (abt).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">About</a>
+            <a href="./index (abt).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-cyber md:p-0 transition duration-300 neon-glow">About</a>
           </li>
           <li>
-            <a href="./index (proj).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Projects</a>
+            <a href="./index (proj).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-cyber md:p-0 transition duration-300 neon-glow">Projects</a>
           </li>
           <li>
-            <a href="./index (con).html" class="block py-2 px-3 text-white bg-blue-600 rounded md:bg-transparent md:text-blue-400 md:p-0" aria-current="page">Contact</a>
+            <a href="./index (con).html" class="block py-2 px-3 text-white bg-cyber rounded md:bg-transparent md:text-cyber md:p-0" aria-current="page">Contact</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <!-- Particles.js Container -->
+  <div id="particles-js" class="absolute inset-0 z-0"><canvas class="particles-js-canvas-el" width="1017" height="508" style="width: 100%; height: 100%;"></canvas></div>
+
   <!-- Contact Section -->
-  <div class="container mx-auto px-4 py-16">
+  <div class="container mx-auto px-4 py-16 relative z-10">
         <div class="text-center mb-16 animate__animated animate__fadeInUp">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text">Get In Touch!</h1>
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 gradient-text cyber-text glitch" data-text="Get In Touch!">
+                Get In Touch!
+            </h1>
             <p class="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
                 Have a project in mind or want to discuss potential opportunities? Feel free to reach out!<br />
                 I'm always open to new challenges and interesting projects.
@@ -153,7 +299,7 @@
         </div>
 
         <div class="animate__animated animate__fadeInUp">
-            <div class="contact-card p-8">
+            <div class="contact-card p-8 hologram">
                 <h2 class="text-3xl font-bold mb-6 gradient-text">Contact Information</h2>
                 <p class="text-lg text-gray-300 mb-8 leading-relaxed">
                     I'm currently available for freelance work, full-time positions, and interesting collaborations. 
@@ -161,7 +307,7 @@
                 </p>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="info-item p-6 rounded-xl">
+                    <div class="info-item p-6 rounded-xl mouse-move-element">
                         <div class="icon-box flex justify-center">
                             <i class="fas fa-map-marker-alt text-2xl"></i>
                         </div>
@@ -169,71 +315,34 @@
                         <p class="text-gray-300 text-center">Banha, Egypt</p>
                     </div>
 
-                    <div class="info-item p-6 rounded-xl">
+                    <div class="info-item p-6 rounded-xl mouse-move-element">
                         <div class="icon-box flex justify-center">
                             <i class="fas fa-phone text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-secondary mb-2 text-center">Phone</h3>
-                        <p class="text-gray-300 text-center">+2001558108823</p>
+                        <p class="text-gray-300 text-center">+20 01558108823</p>
                     </div>
 
-                    <div class="info-item p-6 rounded-xl">
+                    <div class="info-item p-6 rounded-xl mouse-move-element">
                         <div class="icon-box flex justify-center">
                             <i class="fas fa-envelope text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-secondary mb-2 text-center">Email</h3>
                         <p class="text-gray-300 text-center">am1231923@gmail.com</p>
                     </div>
-                    
-                    <div class="info-item p-6 rounded-xl">
+
+                    <div class="info-item p-6 rounded-xl mouse-move-element">
                         <div class="icon-box flex justify-center">
-                            <i class="fab fa-linkedin-in text-2xl"></i>
+                            <i class="fab fa-linkedin text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-secondary mb-2 text-center">LinkedIn</h3>
-                        <p class="text-gray-300 text-center">linkedin.com/in/mostafa</p>
+                        <p class="text-gray-300 text-center">Linkedin.com/in/mostafa-ali-bab0b7385/</p>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <!-- Call to Action -->
-        <div class="text-center mt-16 animate__animated animate__fadeInUp">
-            <h3 class="text-2xl font-bold mb-6 gradient-text">Let's Work Together</h3>
-            <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8">
-                Whether you have a project in mind, a question about my work, or just want to connect, 
-                I'd love to hear from you. I typically respond within 24 hours.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:am1231923@gmail.com" class="btn-3d text-center">
-                    <i class="fas fa-paper-plane mr-2"></i> Email Me
-                </a>
-                <a href="tel:+2001558108823" class="btn-3d text-center bg-gradient-to-r from-purple-600 to-indigo-600">
-                    <i class="fas fa-phone-alt mr-2"></i> Call Me
-                </a>
-            </div>
-        </div>
-    </div>
 
-  <!-- Demo Message Modal -->
-  <div id="demoModal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-    <div class="bg-gray-800 rounded-lg p-8 max-w-md w-full mx-4 border border-cyan-500">
-      <div class="text-center">
-        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-cyan-900">
-          <i class="fas fa-info-circle text-cyan-400 text-xl"></i>
-        </div>
-        <h3 class="text-xl font-bold text-white mt-4">Demo Form</h3>
-        <p class="text-gray-300 mt-2">
-          This is a demonstration form only. In a real implementation, this would connect to a backend service to send your message.
-        </p>
-        <p class="text-gray-300 mt-2">
-          To contact me, please use the contact information provided in the contact info section.
-        </p>
-        <button onclick="closeDemoModal()" class="mt-6 btn-3d px-6 py-2">
-          Close
-        </button>
-      </div>
+                    </div>
     </div>
-  </div>
 
   <!-- Footer -->
   <footer class="footer-custom">
@@ -252,35 +361,128 @@
     </div>
   </footer>
 
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
   <script src="./js/main.js"></script>
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
-    // Theme toggle functionality
+    // Initialize Particles.js
     document.addEventListener('DOMContentLoaded', function() {
-      const themeToggle = document.getElementById('theme-toggle');
-      const themeIcon = document.getElementById('theme-icon');
-      
-      // Check for saved theme preference or respect OS preference
-      const savedTheme = localStorage.getItem('theme');
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      
-      if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
-        document.body.classList.add('light-mode');
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
+      if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+          "particles": {
+            "number": {
+              "value": 80,
+              "density": {
+                "enable": true,
+                "value_area": 800
+              }
+            },
+            "color": {
+              "value": "#00f0ff"
+            },
+            "shape": {
+              "type": "circle",
+              "stroke": {
+                "width": 0,
+                "color": "#000000"
+              }
+            },
+            "opacity": {
+              "value": 0.5,
+              "random": true,
+              "anim": {
+                "enable": true,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+              }
+            },
+            "size": {
+              "value": 3,
+              "random": true,
+              "anim": {
+                "enable": true,
+                "speed": 2,
+                "size_min": 0.1,
+                "sync": false
+              }
+            },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "#00f0ff",
+              "opacity": 0.4,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 1,
+              "direction": "none",
+              "random": true,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": {
+                "enable": false,
+                "rotateX": 600,
+                "rotateY": 1200
+              }
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "grab"
+              },
+              "onclick": {
+                "enable": true,
+                "mode": "push"
+              },
+              "resize": true
+            },
+            "modes": {
+              "grab": {
+                "distance": 140,
+                "line_linked": {
+                  "opacity": 1
+                }
+              },
+              "push": {
+                "particles_nb": 4
+              }
+            }
+          },
+          "retina_detect": true
+        });
       }
+    });
+
+    // Mouse move effect for elements
+    document.addEventListener('DOMContentLoaded', function() {
+      const mouseMoveElements = document.querySelectorAll('.mouse-move-element');
       
-      themeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('light-mode');
-        if (document.body.classList.contains('light-mode')) {
-          themeIcon.classList.remove('fa-moon');
-          themeIcon.classList.add('fa-sun');
-          localStorage.setItem('theme', 'light');
-        } else {
-          themeIcon.classList.remove('fa-sun');
-          themeIcon.classList.add('fa-moon');
-          localStorage.setItem('theme', 'dark');
-        }
+      mouseMoveElements.forEach(element => {
+        element.addEventListener('mousemove', (e) => {
+          const rect = element.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const moveX = (x - centerX) / 20;
+          const moveY = (y - centerY) / 20;
+          
+          element.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          element.style.transform = 'translate(0px, 0px)';
+        });
       });
     });
   </script>

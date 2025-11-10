@@ -9,7 +9,7 @@
   <!-- Flowbite CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Animate.css -->
@@ -25,6 +25,12 @@
                       dark: '#0f0f0f',
                       darker: '#1a1a2e',
                       darkest: '#16213e',
+                      cyber: '#00f0ff',
+                      neon: '#00ffff'
+                  },
+                  fontFamily: {
+                      'orbitron': ['Orbitron', 'sans-serif'],
+                      'poppins': ['Poppins', 'sans-serif']
                   }
               }
           }
@@ -37,15 +43,119 @@
           color: #e0e0e0;
           overflow-x: hidden;
       }
+      body::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: 
+              linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+          background-size: 30px 30px;
+          z-index: -1;
+          pointer-events: none;
+      }
       .navbar-custom {
-          background-color: black;
-          padding: 20px 0;
+          backdrop-filter: blur(10px);
+          background: rgba(0, 0, 0, 0.7) !important;
+          border-bottom: 1px solid rgba(0, 240, 255, 0.3);
       }
       .gradient-text {
           background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+      }
+      .cyber-text {
+          font-family: 'Orbitron', sans-serif;
+          letter-spacing: 1px;
+      }
+      /* Glitch Effect */
+      .glitch {
+          position: relative;
+          display: inline-block;
+      }
+      .glitch::before,
+      .glitch::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
+      .glitch:hover::before {
+          animation: glitch-anim-1 0.3s linear infinite;
+          clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+          transform: translate(-2px, -2px);
+      }
+      .glitch:hover::after {
+          animation: glitch-anim-2 0.3s linear infinite;
+          clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+          transform: translate(2px, 2px);
+      }
+      @keyframes glitch-anim-1 {
+          0% { transform: translate(0); }
+          20% { transform: translate(-3px, 3px); }
+          40% { transform: translate(-3px, -3px); }
+          60% { transform: translate(3px, 3px); }
+          80% { transform: translate(3px, -3px); }
+          to { transform: translate(0); }
+      }
+      @keyframes glitch-anim-2 {
+          0% { transform: translate(0); }
+          20% { transform: translate(3px, 3px); }
+          40% { transform: translate(-3px, -3px); }
+          60% { transform: translate(3px, 3px); }
+          80% { transform: translate(-3px, 3px); }
+          to { transform: translate(0); }
+      }
+      /* Hologram Effect */
+      .hologram {
+          position: relative;
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(0, 240, 255, 0.3);
+          border-radius: 20px;
+          overflow: hidden;
+          transition: all 0.3s ease;
+      }
+      .hologram::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(45deg, transparent, rgba(0, 240, 255, 0.1), transparent);
+          transform: rotate(45deg);
+          animation: sweep 3s infinite linear;
+          pointer-events: none;
+      }
+      @keyframes sweep {
+          0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+          100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+      }
+      /* Pulse Effect */
+      .pulse {
+          animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+          0% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.4); }
+          70% { box-shadow: 0 0 0 10px rgba(0, 240, 255, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, 0); }
+      }
+      /* Neon Glow */
+      .neon-glow {
+          text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+      }
+      /* Mouse Move Effect */
+      .mouse-move-element {
+          transition: transform 0.3s ease-out;
+          transform-style: preserve-3d;
+          will-change: transform;
       }
       .project-card {
           background: linear-gradient(135deg, rgba(0, 255, 255, 0.05), rgba(0, 102, 255, 0.05));
@@ -54,10 +164,12 @@
           margin: 10px;
           transition: all 0.3s ease;
           cursor: pointer;
+          border: 1px solid rgba(0, 240, 255, 0.3);
       }
       .project-card:hover {
           transform: translateY(-10px);
           box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+          background: rgba(0, 240, 255, 0.1);
       }
       .carousel-image {
           height: 70vh;
@@ -71,51 +183,31 @@
           width: 50px;
           height: 50px;
       }
+      /* Footer */
+      .footer-custom {
+          background: rgba(0, 0, 0, 0.7);
+          backdrop-filter: blur(10px);
+          border-top: 1px solid rgba(0, 240, 255, 0.3);
+          padding: 2rem 0;
+          margin-top: 4rem;
+      }
   </style>
 </head>
 <body class="bg-dark">
-  <!-- Header/Navigation -->
-  <nav class="navbar-custom sticky top-0 z-50">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-      <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-        <span class="self-center text-2xl font-semibold whitespace-nowrap gradient-text">Mostafa</span>
-      </a>
-      <div class="flex items-center space-x-4">
-        <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-          <span class="sr-only">Open main menu</span>
-          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-          </svg>
-        </button>
-      </div>
-      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
-          <li>
-            <a href="./index.html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Home</a>
-          </li>
-          <li>
-            <a href="./index (abt).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">About</a>
-          </li>
-          <li>
-            <a href="./index (proj).html" class="block py-2 px-3 text-white bg-blue-600 rounded md:bg-transparent md:text-blue-400 md:p-0" aria-current="page">Projects</a>
-          </li>
-          <li>
-            <a href="./index (con).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <!-- Particles.js Container -->
+  <div id="particles-js" class="absolute inset-0 z-0"><canvas class="particles-js-canvas-el" width="1017" height="508" style="width: 100%; height: 100%;"></canvas></div>
+
+  <!-- Header Container -->
+  <div id="header-container"></div>
 
   <!-- Projects Section -->
-  <div class="container mx-auto px-4 py-16">
-    <h1 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text animate__animated animate__fadeInDown">
+  <div class="container mx-auto px-4 pt-32 pb-0 relative z-10">
+    <h1 class="text-4xl md:text-5xl font-bold text-center mb-16 gradient-text cyber-text glitch animate__animated animate__fadeInDown" data-text="My Projects">
       My Projects
     </h1>
 
     <!-- Carousel -->
     <div id="projects-carousel" class="relative w-full mb-16 animate__animated animate__fadeInUp" data-carousel="slide">
-      <!-- Carousel wrapper -->
       <div class="relative h-96 overflow-hidden rounded-2xl md:h-[70vh]">
         <!-- Item 1 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
@@ -139,7 +231,7 @@
         </div>
         <!-- Item 3 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <a href="./Simon Game Challenge Completed/index.html" target="_blank">
+          <a href="./Simon Game Challenge Completed/Simon Game Challenge Completed/index.html" target="_blank">
             <img src="./images/simon.png" class="absolute block w-full h-full object-cover carousel-image" alt="Simon Game">
             <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 rounded-b-2xl">
               <h3 class="text-2xl font-bold text-white">Simon Game</h3>
@@ -149,23 +241,21 @@
         </div>
         <!-- Item 4 -->
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
-          <a href="./simple E-commerce Store/frontend/index.html" target="_blank">
-            <img src="./images/ecommerce.png" class="absolute block w-full h-full object-cover carousel-image" alt="E-commerce Store">
+          <a href="./index (book).html" target="_blank">
+            <img src="./images/Screenshot 2025-11-09 222929.png" class="absolute block w-full h-full object-cover carousel-image" alt="Book Keeper">
             <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-70 p-6 rounded-b-2xl">
-              <h3 class="text-2xl font-bold text-white">E-commerce Store</h3>
-              <p class="text-gray-300">A full-stack e-commerce application with product listings, cart functionality, and order processing.</p>
+              <h3 class="text-2xl font-bold text-white">Book Keeper</h3>
+              <p class="text-gray-300">A personal book tracking application to manage your reading list and progress.</p>
             </div>
           </a>
         </div>
       </div>
-      <!-- Slider indicators -->
       <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
         <button type="button" class="w-3 h-3 rounded-full bg-cyan-500" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
         <button type="button" class="w-3 h-3 rounded-full bg-gray-500" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
         <button type="button" class="w-3 h-3 rounded-full bg-gray-500" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
         <button type="button" class="w-3 h-3 rounded-full bg-gray-500" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
       </div>
-      <!-- Slider controls -->
       <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
         <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-cyan-500/30 group-hover:bg-cyan-500/50 group-focus:ring-4 group-focus:ring-cyan-400/30">
           <svg class="w-4 h-4 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
@@ -186,7 +276,7 @@
 
     <!-- Project Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate__animated animate__fadeInUp">
-      <div class="project-card">
+      <div class="project-card mouse-move-element">
         <div class="rounded-xl overflow-hidden mb-4">
           <img src="./images/drum.png" alt="Drum Kit" class="w-full h-48 object-cover">
         </div>
@@ -197,9 +287,9 @@
         </a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card mouse-move-element">
         <div class="rounded-xl overflow-hidden mb-4">
-          <img src="./images/dog.png" alt="Dog API Explorer" class="w-full h-48 object-cover">
+          <img src="./images/dog.png" alt="Dog Project" class="w-full h-48 object-cover">
         </div>
         <h3 class="text-xl font-bold mb-2 gradient-text">Dog API Explorer</h3>
         <p class="text-gray-300 mb-4">A web application that fetches and displays dog images from an API.</p>
@@ -208,49 +298,158 @@
         </a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card mouse-move-element">
         <div class="rounded-xl overflow-hidden mb-4">
           <img src="./images/simon.png" alt="Simon Game" class="w-full h-48 object-cover">
         </div>
         <h3 class="text-xl font-bold mb-2 gradient-text">Simon Game</h3>
         <p class="text-gray-300 mb-4">A classic memory game implemented with HTML, CSS, and JavaScript.</p>
-        <a href="./Simon Game Challenge Completed/index.html" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-medium flex items-center">
+        <a href="./Simon Game Challenge Completed/Simon Game Challenge Completed/index.html" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-medium flex items-center">
           View Project <i class="fas fa-arrow-right ml-2"></i>
         </a>
       </div>
 
-      <div class="project-card">
+      <div class="project-card mouse-move-element">
         <div class="rounded-xl overflow-hidden mb-4">
-          <img src="./images/ecommerce.png" alt="E-commerce Store" class="w-full h-48 object-cover">
+          <img src="./images/Screenshot 2025-11-09 222929.png" alt="movie Explorer" class="w-full h-48 object-cover">
         </div>
-        <h3 class="text-xl font-bold mb-2 gradient-text">E-commerce Store</h3>
-        <p class="text-gray-300 mb-4">A full-stack e-commerce application with product listings, cart functionality, and order processing.</p>
-        <a href="./simple E-commerce Store/frontend/index.html" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-medium flex items-center">
+        <h3 class="text-xl font-bold mb-2 gradient-text">movie Explorer</h3>
+        <p class="text-gray-300 mb-4">Discover and explore your favorite movies, latest releases, and hidden gems all in one place with Movie Explorer.</p>
+        <a href="../Movie Explorer/index.html" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-medium flex items-center">
           View Project <i class="fas fa-arrow-right ml-2"></i>
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Footer -->
-  <footer class="footer-custom">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-6">
-                <p class="text-lg">© 2025 Mostafa. All rights reserved.</p>
-            </div>
-            <div class="flex justify-center space-x-6">
-                <a href="https://www.instagram.com/_mo_s_ta_fa?igsh=amx1MXJveWgiaDMw" target="_blank" class="hover:text-secondary transition duration-300">
-                    <i class="fab fa-instagram text-2xl"></i>
-                </a>
-                <a href="https://www.facebook.com/share/1AfRUZkiwo/" target="_blank" class="hover:text-secondary transition duration-300">
-                    <i class="fab fa-facebook text-2xl"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
 
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
   <script src="./js/main.js"></script>
+  <script src="./js/components.js"></script>
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Initialize Particles.js
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+          "particles": {
+            "number": {
+              "value": 80,
+              "density": {
+                "enable": true,
+                "value_area": 800
+              }
+            },
+            "color": {
+              "value": "#00f0ff"
+            },
+            "shape": {
+              "type": "circle",
+              "stroke": {
+                "width": 0,
+                "color": "#000000"
+              }
+            },
+            "opacity": {
+              "value": 0.5,
+              "random": true,
+              "anim": {
+                "enable": true,
+                "speed": 1,
+                "opacity_min": 0.1,
+                "sync": false
+              }
+            },
+            "size": {
+              "value": 3,
+              "random": true,
+              "anim": {
+                "enable": true,
+                "speed": 2,
+                "size_min": 0.1,
+                "sync": false
+              }
+            },
+            "line_linked": {
+              "enable": true,
+              "distance": 150,
+              "color": "#00f0ff",
+              "opacity": 0.4,
+              "width": 1
+            },
+            "move": {
+              "enable": true,
+              "speed": 1,
+              "direction": "none",
+              "random": true,
+              "straight": false,
+              "out_mode": "out",
+              "bounce": false,
+              "attract": {
+                "enable": false,
+                "rotateX": 600,
+                "rotateY": 1200
+              }
+            }
+          },
+          "interactivity": {
+            "detect_on": "canvas",
+            "events": {
+              "onhover": {
+                "enable": true,
+                "mode": "grab"
+              },
+              "onclick": {
+                "enable": true,
+                "mode": "push"
+              },
+              "resize": true
+            },
+            "modes": {
+              "grab": {
+                "distance": 140,
+                "line_linked": {
+                  "opacity": 1
+                }
+              },
+              "push": {
+                "particles_nb": 4
+              }
+            }
+          },
+          "retina_detect": true
+        });
+      }
+    });
 
+    // Mouse move effect for elements
+    document.addEventListener('DOMContentLoaded', function() {
+      const mouseMoveElements = document.querySelectorAll('.mouse-move-element');
+      
+      mouseMoveElements.forEach(element => {
+        element.addEventListener('mousemove', (e) => {
+          const rect = element.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          
+          const moveX = (x - centerX) / 20;
+          const moveY = (y - centerY) / 20;
+          
+          element.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+        
+        element.addEventListener('mouseleave', () => {
+          element.style.transform = 'translate(0px, 0px)';
+        });
+      });
+    });
+  </script>
 </body>
 </html>

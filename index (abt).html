@@ -1,298 +1,968 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Mostafa</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Flowbite CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    <link href="./style.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#4a90e2',
-                        secondary: '#00ffff',
-                        dark: '#0f0f0f',
-                        darker: '#1a1a2e',
-                        darkest: '#16213e',
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
-            color: #e0e0e0;
-            overflow-x: hidden;
-        }
-        .navbar-custom {
-            backdrop-filter: blur(10px);
-            background: rgba(0, 0, 0, 0.7) !important;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
-        }
-        .gradient-text {
-            background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .skill-tag {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 102, 255, 0.1));
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-        }
-        .skill-tag:hover {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 102, 255, 0.2));
-            transform: scale(1.05);
-            box-shadow: 0 8px 15px rgba(0, 255, 255, 0.4), 0 0 20px rgba(0, 255, 255, 0.4);
-        }
-        .value-box {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-        }
-        .value-box::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-        .value-box:hover::before {
-            opacity: 1;
-        }
-        .value-box:hover {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 102, 255, 0.15));
-            border-color: rgba(0, 255, 255, 0.5);
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3), 0 8px 15px rgba(0, 0, 0, 0.2);
-        }
-        .language-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-        .language-card:hover {
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 102, 255, 0.1));
-            border-color: rgba(0, 255, 255, 0.3);
-            box-shadow: 0 8px 15px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
-            transform: translateY(-5px);
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Mostafa</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Flowbite CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="./style.css" rel="stylesheet">
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      primary: '#4a90e2',
+                      secondary: '#00ffff',
+                      dark: '#0f0f0f',
+                      darker: '#1a1a2e',
+                      darkest: '#16213e',
+                      cyber: '#00ffff',
+                      neon: '#ff00ff',
+                      matrix: '#00ff41'
+                  },
+                  fontFamily: {
+                      'orbitron': ['Orbitron', 'sans-serif'],
+                      'poppins': ['Poppins', 'sans-serif']
+                  }
+              }
+          }
+      }
+  </script>
+  <style>
+      body {
+          font-family: 'Poppins', sans-serif;
+          background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+          color: #e0e0e0;
+          overflow-x: hidden;
+          position: relative;
+      }
+      
+      /* Cyber Grid Background */
+      body::before {
+          content: "";
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: 
+              linear-gradient(rgba(0, 240, 255, 0.05) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+          background-size: 30px 30px;
+          z-index: -1;
+          pointer-events: none;
+      }
+      
+      /* Particle System */
+      #particles-js {
+          position: fixed;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          z-index: -2;
+      }
+      
+      .navbar-custom {
+          backdrop-filter: blur(10px);
+          background: rgba(0, 0, 0, 0.7) !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      
+      .floating {
+          animation: float 6s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+          0% {
+              transform: translateY(0px);
+          }
+          50% {
+              transform: translateY(-20px);
+          }
+          100% {
+              transform: translateY(0px);
+          }
+      }
+      
+      .gradient-text {
+          background: linear-gradient(135deg, #00ffff 0%, #0066ff 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          font-family: 'Orbitron', sans-serif;
+          text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      }
+      
+      .cyber-text {
+          font-family: 'Orbitron', sans-serif;
+          letter-spacing: 2px;
+      }
+      
+      .skill-tag {
+          background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 102, 255, 0.1));
+          border: 1px solid rgba(0, 255, 255, 0.3);
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+          position: relative;
+          overflow: hidden;
+      }
+      
+      .skill-tag::after {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.2), transparent);
+          transform: rotate(45deg);
+          transition: all 0.5s ease;
+      }
+      
+      .skill-tag:hover::after {
+          transform: rotate(45deg) translate(100%, 100%);
+      }
+      
+      .skill-tag:hover {
+          background: linear-gradient(135deg, rgba(0, 255, 255, 0.2), rgba(0, 102, 255, 0.2));
+          transform: scale(1.05);
+          box-shadow: 0 8px 15px rgba(0, 255, 255, 0.4), 0 0 20px rgba(0, 255, 255, 0.4);
+      }
+      
+      .value-box {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          transition: all 0.4s ease;
+          position: relative;
+          overflow: hidden;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+      }
+      
+      .value-box::before {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 70%);
+          opacity: 0;
+          transition: opacity 0.4s ease;
+      }
+      
+      .value-box:hover::before {
+          opacity: 1;
+      }
+      
+      .value-box:hover {
+          background: linear-gradient(135deg, rgba(0, 255, 255, 0.15), rgba(0, 102, 255, 0.15));
+          border-color: rgba(0, 255, 255, 0.5);
+          transform: translateY(-10px);
+          box-shadow: 0 15px 40px rgba(0, 255, 255, 0.3), 0 8px 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      .language-card {
+          background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+      }
+      
+      .language-card::after {
+          content: '';
+          position: absolute;
+          top: -50%;
+          left: -50%;
+          width: 200%;
+          height: 200%;
+          background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+          transform: rotate(45deg);
+          transition: all 0.5s ease;
+      }
+      
+      .language-card:hover::after {
+          transform: rotate(45deg) translate(100%, 100%);
+      }
+      
+      .language-card:hover {
+          background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(0, 102, 255, 0.1));
+          border-color: rgba(0, 255, 255, 0.3);
+          box-shadow: 0 8px 15px rgba(0, 255, 255, 0.3), 0 0 20px rgba(0, 255, 255, 0.2);
+          transform: translateY(-5px);
+      }
+      
+      .contact-card {
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 20px;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+      }
+      
+      .contact-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(45deg, transparent, rgba(0, 255, 255, 0.05), transparent);
+          transform: translateX(-100%);
+          transition: transform 0.6s ease;
+      }
+      
+      .contact-card:hover::before {
+          transform: translateX(100%);
+      }
+      
+      .contact-card:hover {
+          transform: translateY(-10px);
+          background: rgba(255, 255, 255, 0.08);
+          box-shadow: 0 20px 40px rgba(0, 255, 255, 0.2);
+      }
+      
+      .language-name {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 0.25rem;
+          color: #fff;
+      }
+      
+      .language-level {
+          font-size: 0.9rem;
+          color: #b8b8b8;
+      }
+      
+      /* Glitch Effect */
+      .glitch {
+          position: relative;
+          display: inline-block;
+      }
+      
+      .glitch::before,
+      .glitch::after {
+          content: attr(data-text);
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+      }
+      
+      .glitch::before {
+          left: 2px;
+          text-shadow: -2px 0 #ff00c1;
+          clip: rect(44px, 450px, 56px, 0);
+          animation: glitch-anim 5s infinite linear alternate-reverse;
+      }
+      
+      .glitch::after {
+          left: -2px;
+          text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+          clip: rect(44px, 450px, 56px, 0);
+          animation: glitch-anim2 5s infinite linear alternate-reverse;
+      }
+      
+      @keyframes glitch-anim {
+          0% {
+              clip: rect(42px, 9999px, 44px, 0);
+          }
+          5% {
+              clip: rect(12px, 9999px, 59px, 0);
+          }
+          10% {
+              clip: rect(48px, 9999px, 29px, 0);
+          }
+          15% {
+              clip: rect(42px, 9999px, 73px, 0);
+          }
+          20% {
+              clip: rect(63px, 9999px, 27px, 0);
+          }
+          25% {
+              clip: rect(34px, 9999px, 55px, 0);
+          }
+          30% {
+              clip: rect(86px, 9999px, 73px, 0);
+          }
+          35% {
+              clip: rect(20px, 9999px, 20px, 0);
+          }
+          40% {
+              clip: rect(26px, 9999px, 60px, 0);
+          }
+          45% {
+              clip: rect(25px, 9999px, 66px, 0);
+          }
+          50% {
+              clip: rect(57px, 9999px, 98px, 0);
+          }
+          55% {
+              clip: rect(5px, 9999px, 46px, 0);
+          }
+          60% {
+              clip: rect(82px, 9999px, 31px, 0);
+          }
+          65% {
+              clip: rect(54px, 9999px, 27px, 0);
+          }
+          70% {
+              clip: rect(28px, 9999px, 99px, 0);
+          }
+          75% {
+              clip: rect(45px, 9999px, 69px, 0);
+          }
+          80% {
+              clip: rect(23px, 9999px, 85px, 0);
+          }
+          85% {
+              clip: rect(1px, 9999px, 83px, 0);
+          }
+          90% {
+              clip: rect(72px, 9999px, 11px, 0);
+          }
+          95% {
+              clip: rect(60px, 9999px, 89px, 0);
+          }
+          100% {
+              clip: rect(52px, 9999px, 74px, 0);
+          }
+      }
+      
+      @keyframes glitch-anim2 {
+          0% {
+              clip: rect(65px, 9999px, 100px, 0);
+          }
+          5% {
+              clip: rect(52px, 9999px, 74px, 0);
+          }
+          10% {
+              clip: rect(79px, 9999px, 85px, 0);
+          }
+          15% {
+              clip: rect(75px, 9999px, 5px, 0);
+          }
+          20% {
+              clip: rect(67px, 9999px, 61px, 0);
+          }
+          25% {
+              clip: rect(14px, 9999px, 79px, 0);
+          }
+          30% {
+              clip: rect(1px, 9999px, 66px, 0);
+          }
+          35% {
+              clip: rect(86px, 9999px, 30px, 0);
+          }
+          40% {
+              clip: rect(23px, 9999px, 98px, 0);
+          }
+          45% {
+              clip: rect(85px, 9999px, 72px, 0);
+          }
+          50% {
+              clip: rect(71px, 9999px, 75px, 0);
+          }
+          55% {
+              clip: rect(2px, 9999px, 48px, 0);
+          }
+          60% {
+              clip: rect(30px, 9999px, 16px, 0);
+          }
+          65% {
+              clip: rect(59px, 9999px, 50px, 0);
+          }
+          70% {
+              clip: rect(41px, 9999px, 62px, 0);
+          }
+          75% {
+              clip: rect(2px, 9999px, 82px, 0);
+          }
+          80% {
+              clip: rect(47px, 9999px, 73px, 0);
+          }
+          85% {
+              clip: rect(3px, 9999px, 27px, 0);
+          }
+          90% {
+              clip: rect(26px, 9999px, 55px, 0);
+          }
+          95% {
+              clip: rect(42px, 9999px, 97px, 0);
+          }
+          100% {
+              clip: rect(38px, 9999px, 49px, 0);
+          }
+      }
+      
+      /* Hologram Effect */
+      .hologram {
+          position: relative;
+          overflow: hidden;
+      }
+      
+      .hologram::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.4), transparent);
+          transition: 0.5s;
+      }
+      
+      .hologram:hover::before {
+          left: 100%;
+      }
+      
+      /* Neon Glow */
+      .neon-glow {
+          text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #00f0ff, 0 0 20px #00f0ff, 0 0 35px #00f0ff;
+      }
+      
+      /* Matrix Rain Effect */
+      .matrix-rain {
+          position: relative;
+          overflow: hidden;
+      }
+      
+      /* Floating Elements */
+      .floating-element {
+          animation: float 8s ease-in-out infinite;
+      }
+      
+      @keyframes float {
+          0% {
+              transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+              transform: translateY(-30px) rotate(10deg);
+          }
+          100% {
+              transform: translateY(0px) rotate(0deg);
+          }
+      }
+      
+      /* Pulse Effect */
+      .pulse {
+          animation: pulse 2s infinite;
+      }
+      
+      @keyframes pulse {
+          0% {
+              box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.7);
+          }
+          70% {
+              box-shadow: 0 0 0 15px rgba(0, 240, 255, 0);
+          }
+          100% {
+              box-shadow: 0 0 0 0 rgba(0, 240, 255, 0);
+          }
+      }
+  </style>
 </head>
 <body class="bg-dark">
-<!-- Header/Navigation -->
-<nav class="navbar-custom sticky top-0 z-50">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
-      <span class="self-center text-2xl font-semibold whitespace-nowrap gradient-text">Mostafa</span>
-    </a>
-    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-400 rounded-lg md:hidden hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
-      <span class="sr-only">Open main menu</span>
-      <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
-        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
-      </svg>
-    </button>
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-      <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-700 rounded-lg bg-gray-800 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-transparent">
-        <li>
-          <a href="./index.html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Home</a>
-        </li>
-        <li>
-          <a href="./index (abt).html" class="block py-2 px-3 text-white bg-blue-600 rounded md:bg-transparent md:text-blue-400 md:p-0" aria-current="page">About</a>
-        </li>
-        <li>
-          <a href="./index (proj).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Projects</a>
-        </li>
-        <li>
-          <a href="./index (con).html" class="block py-2 px-3 text-white rounded hover:bg-gray-700 md:hover:bg-transparent md:border-0 md:hover:text-blue-400 md:p-0 transition duration-300">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<!-- Particles.js Container -->
+<div id="particles-js" class="absolute inset-0 z-0"><canvas class="particles-js-canvas-el" width="1017" height="508" style="width: 100%; height: 100%;"></canvas></div>
+
+<!-- Header Container -->
+<div id="header-container"></div>
 
 <!-- About Section -->
-<div class="container mx-auto px-4 py-16">
-  <div class="flex flex-col lg:flex-row items-center gap-12 animate__animated animate__fadeInUp">
-    <div class="lg:w-1/3 flex justify-center">
-      <div class="relative">
-        <div class="floating w-64 h-64 rounded-full overflow-hidden border-4 border-secondary shadow-2xl shadow-cyan-500/50">
-          <img src="./images/لوفى.png" alt="Profile Picture" class="w-full h-full object-cover" />
-        </div>
-        <div class="absolute -top-4 -right-4 w-24 h-24 rounded-full bg-purple-600 animate-ping opacity-20"></div>
-        <div class="absolute -bottom-4 -left-4 w-16 h-16 rounded-full bg-cyan-500 animate-ping opacity-20"></div>
-      </div>
+<div class="container mx-auto px-4 py-16 relative z-10 pt-32">
+  <div class="animate__animated animate__fadeInUp">
+    <div class="text-center mb-12">
+      <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text cyber-text glitch" data-text="Hello, I'm Mostafa">Hello, I'm Mostafa</h1>
+      <h2 class="text-3xl text-secondary font-medium mb-8 cyber-text pulse">Web Developer & UI/UX Designer</h2>
+      <div class="w-32 h-1 bg-cyan-500 mx-auto mb-8 rounded-full"></div>
     </div>
-    <div class="lg:w-2/3">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Hello, I'm Mostafa</h1>
-      <h2 class="text-2xl text-secondary font-medium mb-6">Web Developer & UI/UX Designer</h2>
-      <p class="text-lg text-gray-300 mb-6 leading-relaxed">
-        I'm a passionate web developer with expertise in creating modern, responsive websites and applications. My journey in web development began with a fascination for how technology and design intersect to create meaningful digital experiences.
-      </p>
-      <p class="text-lg text-gray-300 mb-8 leading-relaxed">
-        I specialize in HTML, CSS, JavaScript, and React, with a focus on building user-friendly interfaces that deliver exceptional user experiences. I've worked on diverse projects ranging from personal portfolios to e-commerce platforms.
-      </p>
-
-      <div class="mb-10">
-        <h3 class="text-2xl font-semibold mb-4 gradient-text">My Skills</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fab fa-html5 text-3xl text-orange-500 mb-2"></i>
-            <span class="text-sm font-medium">HTML5</span>
-          </div>
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fab fa-css3-alt text-3xl text-blue-500 mb-2"></i>
-            <span class="text-sm font-medium">CSS3</span>
-          </div>
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fab fa-js text-3xl text-yellow-500 mb-2"></i>
-            <span class="text-sm font-medium">JavaScript</span>
-          </div>
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fab fa-react text-3xl text-cyan-500 mb-2"></i>
-            <span class="text-sm font-medium">React.js</span>
-          </div>
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fab fa-bootstrap text-3xl text-purple-500 mb-2"></i>
-            <span class="text-sm font-medium">Bootstrap</span>
-          </div>
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fab fa-git-alt text-3xl text-red-500 mb-2"></i>
-            <span class="text-sm font-medium">Git</span>
-          </div>
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fas fa-mobile-alt text-3xl text-green-500 mb-2"></i>
-            <span class="text-sm font-medium">Responsive Design</span>
-          </div>
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fas fa-code text-3xl text-indigo-500 mb-2"></i>
-            <span class="text-sm font-medium">Tailwind CSS</span>
-          </div>
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fab fa-github text-3xl text-white mb-2"></i>
-            <span class="text-sm font-medium">GitHub</span>
-          </div>
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fab fa-python text-3xl text-yellow-400 mb-2"></i>
-            <span class="text-sm font-medium">Python</span>
-          </div>
-          <div class="skill-tag p-4 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:scale-105 hover:shadow-lg">
-            <i class="fab fa-java text-3xl text-red-600 mb-2"></i>
-            <span class="text-sm font-medium">Java</span>
+    <div class="max-w-4xl mx-auto">
+      <div class="contact-card p-8 mb-12 hologram mouse-move-element">
+        <p class="text-lg text-gray-300 mb-6 leading-relaxed text-center">
+          As a dedicated web developer, I've spent years mastering the art of creating digital solutions that are both technically robust and visually compelling. My approach combines technical expertise with creative problem-solving to deliver projects that exceed expectations.
+        </p>
+        <p class="text-lg text-gray-300 mb-8 leading-relaxed text-center">
+          With a strong foundation in frontend technologies and a keen eye for user experience, I've successfully delivered projects across various industries. My work reflects a commitment to clean code, performance optimization, and staying current with emerging web technologies.
+        </p>
+      </div>
+      <!-- Professional Skills Section -->
+      <div class="mt-16 animate__animated animate__fadeInUp">
+        <div class="contact-card p-8 hologram">
+          <h2 class="text-4xl font-bold mb-6 gradient-text cyber-text text-center">Professional Skills</h2>
+          <p class="text-lg text-gray-300 mb-8 leading-relaxed text-center">
+            Here are the key professional skills that define my expertise:
+          </p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Skill 1 -->
+            <div class="value-box p-6 rounded-xl mouse-move-element">
+              <div class="flex items-center mb-4">
+                <div class="skill-tag w-16 h-16 rounded-full flex items-center justify-center mr-4 pulse">
+                  <i class="fas fa-laptop-code text-2xl text-cyan-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold cyber-text">Web Development</h3>
+              </div>
+              <p class="text-gray-300">
+                Creating responsive, user-friendly websites with modern technologies and best practices.
+              </p>
+            </div>
+            
+            <!-- Skill 2 -->
+            <div class="value-box p-6 rounded-xl mouse-move-element">
+              <div class="flex items-center mb-4">
+                <div class="skill-tag w-16 h-16 rounded-full flex items-center justify-center mr-4 pulse">
+                  <i class="fas fa-paint-brush text-2xl text-cyan-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold cyber-text">UI/UX Design</h3>
+              </div>
+              <p class="text-gray-300">
+                Designing intuitive interfaces with a focus on user experience and visual appeal.
+              </p>
+            </div>
+            
+            <!-- Skill 3 -->
+            <div class="value-box p-6 rounded-xl mouse-move-element">
+              <div class="flex items-center mb-4">
+                <div class="skill-tag w-16 h-16 rounded-full flex items-center justify-center mr-4 pulse">
+                  <i class="fas fa-mobile-alt text-2xl text-cyan-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold cyber-text">Responsive Design</h3>
+              </div>
+              <p class="text-gray-300">
+                Ensuring seamless experiences across all devices from desktop to mobile.
+              </p>
+            </div>
+            
+            <!-- Skill 4 -->
+            <div class="value-box p-6 rounded-xl mouse-move-element">
+              <div class="flex items-center mb-4">
+                <div class="skill-tag w-16 h-16 rounded-full flex items-center justify-center mr-4 pulse">
+                  <i class="fas fa-bolt text-2xl text-cyan-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold cyber-text">Performance Optimization</h3>
+              </div>
+              <p class="text-gray-300">
+                Improving website speed and efficiency for better user engagement.
+              </p>
+            </div>
+            
+            <!-- Skill 5 -->
+            <div class="value-box p-6 rounded-xl mouse-move-element">
+              <div class="flex items-center mb-4">
+                <div class="skill-tag w-16 h-16 rounded-full flex items-center justify-center mr-4 pulse">
+                  <i class="fas fa-search text-2xl text-cyan-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold cyber-text">SEO</h3>
+              </div>
+              <p class="text-gray-300">
+                Implementing best practices to improve search engine visibility.
+              </p>
+            </div>
+            
+            <!-- Skill 6 -->
+            <div class="value-box p-6 rounded-xl mouse-move-element">
+              <div class="flex items-center mb-4">
+                <div class="skill-tag w-16 h-16 rounded-full flex items-center justify-center mr-4 pulse">
+                  <i class="fas fa-users text-2xl text-cyan-400"></i>
+                </div>
+                <h3 class="text-2xl font-bold cyber-text">Team Collaboration</h3>
+              </div>
+              <p class="text-gray-300">
+                Working effectively with cross-functional teams to deliver quality products.
+              </p>
+            </div>
           </div>
         </div>
       </div>
+      
+      <!-- Programming Skills Section -->
+      <div class="mt-16 animate__animated animate__fadeInUp">
+        <div class="contact-card p-8 hologram">
+          <h2 class="text-4xl font-bold mb-6 gradient-text cyber-text text-center">Programming Skills</h2>
+          <p class="text-lg text-gray-300 mb-8 leading-relaxed text-center">
+            Here are the programming languages and technologies I'm proficient in:
+          </p>
 
-      <div class="language-skills">
-        <h3 class="text-2xl font-semibold mb-4 gradient-text">Languages</h3>
-        <div class="space-y-4">
-          <div class="language-card rounded-xl p-4 transition-all duration-300">
-            <div class="language-header">
-              <div class="language-icon text-blue-500">
-                <i class="fas fa-language"></i>
-                  </div>
-                <div class="language-info">
-                  <h4 class="language-name">English</h4>
-                  <p class="language-level">Professional Working Proficiency</p>
-                </div>
-                <div class="text-right">
-                  <span class="text-lg font-bold text-cyan-400">85%</span>
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+            <!-- JavaScript -->
+            <div class="language-card p-6 rounded-xl flex flex-col items-center group mouse-move-element">
+              <div class="relative mb-4">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#2d3748"
+                    stroke-width="3"
+                  ></path>
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#f7df1e"
+                    stroke-width="3"
+                    stroke-dasharray="85, 100"
+                    class="transition-all duration-500 group-hover:stroke-[#f0db4f]"
+                  ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <i class="fab fa-js text-2xl" style="color: #f7df1e;"></i>
                 </div>
               </div>
-              <div class="progress-bar">
-                <div class="progress-fill english"></div>
+              <h3 class="language-name text-center cyber-text">JavaScript</h3>
+              <p class="language-level text-center">85%</p>
+              <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div class="bg-yellow-400 h-2 rounded-full" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <!-- Python -->
+            <div class="language-card p-6 rounded-xl flex flex-col items-center group mouse-move-element">
+              <div class="relative mb-4">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#2d3748"
+                    stroke-width="3"
+                  ></path>
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#3776ab"
+                    stroke-width="3"
+                    stroke-dasharray="30, 100"
+                    class="transition-all duration-500 group-hover:stroke-[#4584b6]"
+                  ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <i class="fab fa-python text-2xl" style="color: #3776ab;"></i>
+                </div>
+              </div>
+              <h3 class="language-name text-center cyber-text">Python</h3>
+              <p class="language-level text-center">30%</p>
+              <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div class="bg-blue-500 h-2 rounded-full" style="width: 30%"></div>
+              </div>
+            </div>
+
+            <!-- HTML -->
+            <div class="language-card p-6 rounded-xl flex flex-col items-center group mouse-move-element">
+              <div class="relative mb-4">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#2d3748"
+                    stroke-width="3"
+                  ></path>
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#e34f26"
+                    stroke-width="3"
+                    stroke-dasharray="95, 100"
+                    class="transition-all duration-500 group-hover:stroke-[#f16529]"
+                  ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <i class="fab fa-html5 text-2xl" style="color: #e34f26;"></i>
+                </div>
+              </div>
+              <h3 class="language-name text-center cyber-text">HTML</h3>
+              <p class="language-level text-center">95%</p>
+              <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div class="bg-orange-500 h-2 rounded-full" style="width: 95%"></div>
+              </div>
+            </div>
+
+            <!-- CSS -->
+            <div class="language-card p-6 rounded-xl flex flex-col items-center group mouse-move-element">
+              <div class="relative mb-4">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#2d3748"
+                    stroke-width="3"
+                  ></path>
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#1572b6"
+                    stroke-width="3"
+                    stroke-dasharray="90, 100"
+                    class="transition-all duration-500 group-hover:stroke-[#264de4]"
+                  ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <i class="fab fa-css3-alt text-2xl" style="color: #1572b6;"></i>
+                </div>
+              </div>
+              <h3 class="language-name text-center cyber-text">CSS</h3>
+              <p class="language-level text-center">90%</p>
+              <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div class="bg-blue-600 h-2 rounded-full" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <!-- React -->
+            <div class="language-card p-6 rounded-xl flex flex-col items-center group mouse-move-element">
+              <div class="relative mb-4">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#2d3748"
+                    stroke-width="3"
+                  ></path>
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#61dafb"
+                    stroke-width="3"
+                    stroke-dasharray="60, 100"
+                    class="transition-all duration-500 group-hover:stroke-[#61dafb]"
+                  ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <i class="fab fa-react text-2xl" style="color: #61dafb;"></i>
+                </div>
+              </div>
+              <h3 class="language-name text-center cyber-text">React</h3>
+              <p class="language-level text-center">60%</p>
+              <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div class="bg-cyan-400 h-2 rounded-full" style="width: 60%"></div>
+              </div>
+            </div>
+
+            <!-- Node.js -->
+            <div class="language-card p-6 rounded-xl flex flex-col items-center group mouse-move-element">
+              <div class="relative mb-4">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#2d3748"
+                    stroke-width="3"
+                  ></path>
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#339933"
+                    stroke-width="3"
+                    stroke-dasharray="80, 100"
+                    class="transition-all duration-500 group-hover:stroke-[#3c873a]"
+                  ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <i class="fab fa-node-js text-2xl" style="color: #339933;"></i>
+                </div>
+              </div>
+              <h3 class="language-name text-center cyber-text">Node.js</h3>
+              <p class="language-level text-center">80%</p>
+              <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div class="bg-green-500 h-2 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <!-- SQL -->
+            <div class="language-card p-6 rounded-xl flex flex-col items-center group mouse-move-element">
+              <div class="relative mb-4">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#2d3748"
+                    stroke-width="3"
+                  ></path>
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#e38225"
+                    stroke-width="3"
+                    stroke-dasharray="80, 100"
+                    class="transition-all duration-500 group-hover:stroke-[#e38225]"
+                  ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <i class="fas fa-database text-2xl" style="color: #e38225;"></i>
+                </div>
+              </div>
+              <h3 class="language-name text-center cyber-text">SQL</h3>
+              <p class="language-level text-center">80%</p>
+              <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div class="bg-orange-400 h-2 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <!-- Git -->
+            <div class="language-card p-6 rounded-xl flex flex-col items-center group mouse-move-element">
+              <div class="relative mb-4">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#2d3748"
+                    stroke-width="3"
+                  ></path>
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#f05032"
+                    stroke-width="3"
+                    stroke-dasharray="80, 100"
+                    class="transition-all duration-500 group-hover:stroke-[#f05032]"
+                  ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <i class="fab fa-git-alt text-2xl" style="color: #f05032;"></i>
+                </div>
+              </div>
+              <h3 class="language-name text-center cyber-text">Git</h3>
+              <p class="language-level text-center">80%</p>
+              <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div class="bg-red-500 h-2 rounded-full" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <!-- Tailwind CSS -->
+            <div class="language-card p-6 rounded-xl flex flex-col items-center group mouse-move-element">
+              <div class="relative mb-4">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#2d3748"
+                    stroke-width="3"
+                  ></path>
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#06b6d4"
+                    stroke-width="3"
+                    stroke-dasharray="85, 100"
+                    class="transition-all duration-500 group-hover:stroke-[#06b6d4]"
+                  ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <i class="fas fa-wind text-2xl" style="color: #06b6d4;"></i>
+                </div>
+              </div>
+              <h3 class="language-name text-center cyber-text">Tailwind CSS</h3>
+              <p class="language-level text-center">85%</p>
+              <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div class="bg-cyan-500 h-2 rounded-full" style="width: 85%"></div>
               </div>
             </div>
             
-            <div class="language-card rounded-xl p-4 transition-all duration-300">
-              <div class="language-header">
-                <div class="language-icon text-green-500">
-                  <i class="fas fa-language"></i>
-                </div>
-                <div class="language-info">
-                  <h4 class="language-name">Arabic</h4>
-                  <p class="language-level">Native Proficiency</p>
-                </div>
-                <div class="text-right">
-                  <span class="text-lg font-bold text-cyan-400">100%</span>
-                </div>
-              </div>
-              <div class="progress-bar">
-                <div class="progress-fill arabic"></div>
-              </div>
-            </div>
-            
-            <div class="language-card rounded-xl p-4 transition-all duration-300">
-              <div class="language-header">
-                <div class="language-icon text-yellow-500">
-                  <i class="fab fa-python"></i>
-                </div>
-                <div class="language-info">
-                  <h4 class="language-name">Python</h4>
-                  <p class="language-level">Beginner (Learning)</p>
-                </div>
-                <div class="text-right">
-                  <span class="text-lg font-bold text-cyan-400">40%</span>
+            <!-- Java -->
+            <div class="language-card p-6 rounded-xl flex flex-col items-center group mouse-move-element">
+              <div class="relative mb-4">
+                <svg class="w-24 h-24" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#2d3748"
+                    stroke-width="3"
+                  ></path>
+                  <path
+                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#f89820"
+                    stroke-width="3"
+                    stroke-dasharray="20, 100"
+                    class="transition-all duration-500 group-hover:stroke-[#f89820]"
+                  ></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <i class="fab fa-java text-2xl" style="color: #f89820;"></i>
                 </div>
               </div>
-              <div class="progress-bar">
-                <div class="progress-fill python"></div>
+              <h3 class="language-name text-center cyber-text">Java</h3>
+              <p class="language-level text-center">20%</p>
+              <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                <div class="bg-orange-500 h-2 rounded-full" style="width: 20%"></div>
               </div>
             </div>
             
-            <div class="language-card rounded-xl p-4 transition-all duration-300">
-              <div class="language-header">
-                <div class="language-icon text-red-600">
-                  <i class="fab fa-java"></i>
+           </div>
+          </div>
+        </div>
+      </div>
+      <div class="language-skills mt-16">
+        <h3 class="text-3xl font-semibold mb-6 gradient-text cyber-text text-center">Languages</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="language-card rounded-xl p-6 transition-all duration-300 hologram mouse-move-element">
+            <div class="language-header flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="language-icon text-blue-500 mr-4 pulse">
+                  <i class="fas fa-language text-3xl"></i>
                 </div>
                 <div class="language-info">
-                  <h4 class="language-name">Java</h4>
-                  <p class="language-level">Beginner (Learning)</p>
-                </div>
-                <div class="text-right">
-                  <span class="text-lg font-bold text-cyan-400">30%</span>
+                  <h4 class="language-name text-2xl font-bold cyber-text">English</h4>
+                  <p class="language-level text-gray-300">Professional Working Proficiency</p>
                 </div>
               </div>
-              <div class="progress-bar">
-                <div class="progress-fill java"></div>
+              <div class="text-right">
+                <span class="text-xl font-bold text-cyan-400">85%</span>
               </div>
+            </div>
+            <div class="progress-bar mt-4 h-3 bg-gray-700 rounded-full overflow-hidden">
+              <div class="progress-fill english h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="width: 85%"></div>
+            </div>
+          </div>
+          
+          <div class="language-card rounded-xl p-6 transition-all duration-300 hologram mouse-move-element">
+            <div class="language-header flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="language-icon text-red-500 mr-4 pulse">
+                  <i class="fas fa-language text-3xl"></i>
+                </div>
+                <div class="language-info">
+                  <h4 class="language-name text-2xl font-bold cyber-text">Spanish</h4>
+                  <p class="language-level text-gray-300">Basic Proficiency</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-xl font-bold text-cyan-400">20%</span>
+              </div>
+            </div>
+            <div class="progress-bar mt-4 h-3 bg-gray-700 rounded-full overflow-hidden">
+              <div class="progress-fill spanish h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="width: 20%"></div>
+            </div>
+          </div>
+          
+          <div class="language-card rounded-xl p-6 transition-all duration-300 hologram mouse-move-element">
+            <div class="language-header flex items-center justify-between">
+              <div class="flex items-center">
+                <div class="language-icon text-green-500 mr-4 pulse">
+                  <i class="fas fa-language text-3xl"></i>
+                </div>
+                <div class="language-info">
+                  <h4 class="language-name text-2xl font-bold cyber-text">Arabic</h4>
+                  <p class="language-level text-gray-300">Native Proficiency</p>
+                </div>
+              </div>
+              <div class="text-right">
+                <span class="text-xl font-bold text-cyan-400">100%</span>
+              </div>
+            </div>
+            <div class="progress-bar mt-4 h-3 bg-gray-700 rounded-full overflow-hidden">
+              <div class="progress-fill arabic h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full" style="width: 100%"></div>
             </div>
           </div>
         </div>
@@ -301,26 +971,134 @@
   </div>
 </div>
 
-<!-- Footer -->
-    <footer class="footer-custom">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-6">
-                <p class="text-lg">© 2025 Mostafa. All rights reserved.</p>
-            </div>
-            <div class="flex justify-center space-x-6">
-                <a href="https://www.instagram.com/_mo_s_ta_fa?igsh=amx1MXJveWdiaDMw" target="_blank" class="hover:text-secondary transition duration-300">
-                    <i class="fab fa-instagram text-2xl"></i>
-                </a>
-                <a href="https://www.facebook.com/share/1AfRUZkiwo/" target="_blank" class="hover:text-secondary transition duration-300">
-                    <i class="fab fa-facebook text-2xl"></i>
-                </a>
-            </div>
-        </div>
-    </footer>
+<!-- Footer Container -->
+<div id="footer-container"></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.0/flowbite.min.js"></script>
 <script src="./js/main.js"></script>
+<script src="./js/components.js"></script>
+<!-- Particles.js Library -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script>
+  // Initialize Particles.js
+  document.addEventListener('DOMContentLoaded', function() {
+    if (typeof particlesJS !== 'undefined') {
+      particlesJS('particles-js', {
+        "particles": {
+          "number": {
+            "value": 80,
+            "density": {
+              "enable": true,
+              "value_area": 800
+            }
+          },
+          "color": {
+            "value": "#00f0ff"
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": {
+              "width": 0,
+              "color": "#000000"
+            }
+          },
+          "opacity": {
+            "value": 0.5,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 1,
+              "opacity_min": 0.1,
+              "sync": false
+            }
+          },
+          "size": {
+            "value": 3,
+            "random": true,
+            "anim": {
+              "enable": true,
+              "speed": 2,
+              "size_min": 0.1,
+              "sync": false
+            }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#00f0ff",
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 1,
+            "direction": "none",
+            "random": true,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false,
+            "attract": {
+              "enable": false,
+              "rotateX": 600,
+              "rotateY": 1200
+            }
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": {
+              "enable": true,
+              "mode": "grab"
+            },
+            "onclick": {
+              "enable": true,
+              "mode": "push"
+            },
+            "resize": true
+          },
+          "modes": {
+            "grab": {
+              "distance": 140,
+              "line_linked": {
+                "opacity": 1
+              }
+            },
+            "push": {
+              "particles_nb": 4
+            }
+          }
+        },
+        "retina_detect": true
+      });
+    }
+  });
+
+  // Mouse move effect for elements
+  document.addEventListener('DOMContentLoaded', function() {
+    const mouseMoveElements = document.querySelectorAll('.mouse-move-element');
+    
+    mouseMoveElements.forEach(element => {
+      element.addEventListener('mousemove', (e) => {
+        const rect = element.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const moveX = (x - centerX) / 20;
+        const moveY = (y - centerY) / 20;
+        
+        element.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      });
+      
+      element.addEventListener('mouseleave', () => {
+        element.style.transform = 'translate(0px, 0px)';
+      });
+    });
+  });
+
   // Animate progress bars when they come into view
   document.addEventListener('DOMContentLoaded', function() {
     // Theme toggle functionality
@@ -368,6 +1146,13 @@
     
     progressBars.forEach(bar => {
       observer.observe(bar);
+    });
+    
+    // Add floating animation to elements
+    const floatingElements = document.querySelectorAll('.floating-element');
+    floatingElements.forEach((element, index) => {
+      // Add staggered animation delays
+      element.style.animationDelay = `${index * 0.1}s`;
     });
   });
 </script>
