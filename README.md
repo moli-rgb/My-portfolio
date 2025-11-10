@@ -24,10 +24,7 @@ My-portfolio/
 ├── images/                    # Image assets
 ├── assets/                    # Additional assets
 ├── Drum+Kit+Starting+Files/   # Interactive Drum Kit game
-├── Simon+Game+Challenge+Completed/  # Interactive Simon game
-└── simple E-commerce Store/   # Full-stack e-commerce application
-    ├── frontend/              # Frontend HTML/CSS/JS files
-    └── backend/               # Node.js/Express backend with PostgreSQL
+└── Simon+Game+Challenge+Completed/  # Interactive Simon game
 ```
 
 ## 🎯 Features
@@ -40,8 +37,8 @@ My-portfolio/
 - **Interactive Games**: 
   - Simon Memory Game
   - Drum Kit Simulator
-- **Full-stack Application**:
-  - E-commerce Store with product listings, cart functionality, and order processing
+- **Featured Projects**:
+  - Movie Explorer - Discover and explore your favorite movies
 
 ## 🛠️ Technologies Used
 
@@ -50,10 +47,6 @@ My-portfolio/
 - JavaScript
 - Bootstrap 5
 - jQuery
-- Node.js
-- Express.js
-- PostgreSQL
-- Sequelize ORM
 
 ## 🚀 Getting Started
 
@@ -68,44 +61,6 @@ My-portfolio/
    ```
 
 3. Open `index.html` in your browser to view the site
-
-## 🛍️ E-commerce Store Setup
-
-To run the e-commerce store:
-
-1. Install backend dependencies:
-   ```bash
-   cd "simple E-commerce Store/backend"
-   npm install
-   ```
-
-2. Create a PostgreSQL database named `ecommerce`
-
-3. Create a `.env` file in the backend directory with your database credentials:
-   ```
-   PORT=5000
-   DB_HOST=localhost
-   DB_PORT=5432
-   DB_NAME=ecommerce
-   DB_USER=your_postgres_username
-   DB_PASSWORD=your_postgres_password
-   JWT_SECRET=your_jwt_secret_key_here
-   ```
-
-4. Start the backend server:
-   ```bash
-   npm run dev
-   ```
-
-5. Seed the database with sample products (optional):
-   ```bash
-   npm run seed
-   ```
-
-6. Open the frontend files in your browser:
-   - Open `simple E-commerce Store/frontend/index.html` in your browser
-
-**Note**: The e-commerce store requires the backend server to be running to display products and images properly. Without the server running, the frontend will not be able to fetch product data.
 
 ## 📧 Contact Form Setup
 
@@ -124,6 +79,12 @@ To make the contact form work:
 ### Drum Kit
 - Interactive drum set simulator
 - Play drums using keyboard keys (W, A, S, D, J, K, L)
+
+## 🎬 Movie Explorer
+
+### Movie Explorer
+- Discover and explore your favorite movies, latest releases, and hidden gems
+- Features a modern interface for browsing movie collections
 
 ## 📝 Customization
 
